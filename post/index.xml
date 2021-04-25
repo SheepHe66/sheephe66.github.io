@@ -6,7 +6,39 @@
     <description>Recent content in Posts on SheepHe 的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Apr 2021 17:37:55 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Apr 2021 22:03:34 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第一篇正经博客！</title>
+      <link>https://sheephe66.github.io/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E7%BB%8F%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 23 Apr 2021 22:03:34 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E7%BB%8F%E5%8D%9A%E5%AE%A2/</guid>
+      <description>我的博客终于搭建成功了，真是不容易啊！！！今天来写篇正经博客！
+目前博客只有两篇文章，不过都是用来测试的。。。第一篇FirstBlog是博客首次本地启动的时候随便写的用来测试本地有没有启动成功的，第二篇计算机网络脉络梳理， 作为第二次测试记得好像是已经搭建好了，也部署到Github上去了，然后测试更新文章来着。emmm······看起来是很干货，其实是从B站UP主CodeSheep(一个宝藏程序猿UP)的的一期干货视频里做的笔记，主要是针对面试的计算机网络学习路线梳理。因为这个已经是总结好的了，反正以后也是要发的，就干脆作为测试发布了。
+第一篇(正经)博客，不知道写啥，那还是来聊聊我的博客是怎么搭建的吧，毕竟搭博客的过程中踩了太多坑了。。。我还截了好多图，必须记录一下！
+我其实很早就想弄一个自己的个人博客网站了，作为一个非计算机专业的我觉得这很酷。大概去年吧，还真的去尝试了一下，很显然，以失败告终。。。当时是在知乎上找的教程，那上面让去Github上面clone别人的博客框架，看着教程简单，但第一步就出错了，一个按钮直接变成灰色不让我点。。。WTF！然后就没有然后了。但前一段时间在B站关注了一个宝藏程序猿UP，就是上面提到的CodeSheep，我羊哥！视频、微信公众号全是干货，好家伙，简直我的最爱呀！翻到以前的视频，好几期都是关于小白如何搭建自己的个人博客的，还说博客对以后的面试会很有帮助，一下子就让我重新燃起了自信！于是选了一个简单点Hugo博客框架，但由于他是MAC OS，我又去CSDN找了一个详细的教程，就开始了。
+还是那句话，教程看着简单，一步一步的很详细，但总是会在莫名其妙的位置出各种莫名其妙的错误！前面瞎BB了半天，这里来写一下具体步骤以及踩坑是怎么处理的吧。
+Windows系统上基于Hugo博客框架创建个人博客 下载Hugo博客框架，配置环境变量，检查是否安装成功
+下载Git并安装
+创建一个博客文件夹Blog，里面再放一个BlogOne文件夹，在当前目录下右键打开Git，输入：hugo new site SheepHe(博客名)
+打开SheepHe，下载hugo博客主题（https://themes.gohugo.io/）
+复制主题链接后，在themes目录下输入：git clone +主题地址
+（需要将exampleSite文件夹里的config文件复制并替换根目录下的config文件)
+本地启动博客，hugo server -t hugo-theme-stack &amp;ndash;buildDrafts
+此时复制http://localhost:1313到浏览器可以本地访问
+写文章，根目录下，hugo new post/文章名.md,然后打开Typora等编辑器写文章，接着重新运行，hugo server -t hugo-theme-stack &amp;ndash;buildDrafts
+接着部署到Github上，重点就在这儿：
+新建Github项目
+根目录下，输入：
+hugo &amp;ndash;theme=hugo-theme-stack &amp;ndash;baseUrl=&amp;ldquo;https://sheephe66.github.io/&amp;quot; &amp;ndash;buildDrafts
+会生成一个public文件夹，标准步骤是：在此public文件夹下输入：
+git init git add . git commit -m &amp;ldquo;我的博客第一次提交&amp;rdquo; git remote add origin https://github.com/sheephe66/sheephe66.github.io.git git push -u -origin master
+就是要push这个public文件夹，是不是看着很简单，我以为我都要成功了，最后一步push，Git报了一个致命错误，我看不懂!
+后来请教好多人，以及百度谷歌了好久还是没能解决，最后请教了B站另一位良心UP主 ，我水哥，一个架构师，他让他小弟帮我解决的，不过还是没能解决那个报错，用的另外一种方法，将Github仓库clone到本地，然后将public文件夹复制到仓库里，然后整个一起提交，终于解决了！当时激动了好久！
+ps:水哥说，这种方法还适用于以后工作，不行就把项目拉到本地，直接clone，很有效！嗯嗯，学到了！
+OK，就BB这么多了，以后就不说这么多废话了，尽量更新一些阶段性学习成果、笔记和心得！学习去了~~~</description>
+    </item>
+    
     <item>
       <title>计算机网络脉络梳理</title>
       <link>https://sheephe66.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%84%89%E7%BB%9C%E6%A2%B3%E7%90%86/</link>
