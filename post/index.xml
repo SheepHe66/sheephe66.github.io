@@ -6,7 +6,27 @@
     <description>Recent content in Posts on SheepHe 的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Apr 2021 22:03:34 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 May 2021 19:21:07 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaSE 面向对象</title>
+      <link>https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Tue, 18 May 2021 19:21:07 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>JavaSE&amp;ndash;面向对象整合 面向对象的三条主线  类和类员：属性，方法，构造器，代码块等 面向对象的三大特征：封装，继承，多态 其他关键字:this,super,abstract,interface,static, final,package,import  封装 封装性的体现：
+ 我们将类的属性xxx私有化（private），同时，提供公共的（public）方法来获取（getxxx）和设置（setxxx）此属性的值 不对外暴露的私有方法 单例模式  权限修饰符：(权限从小到大) private , 缺省（不写） , protected , public
+继承 一旦子类A继承了父类B，则子类A就获得了父类B中声明的结构（所有属性、方法等，包括封装性）
+Java继承的规定
+  单继承性：一个类只能有一个父类
+  子父类是相对的概念
+  子类直接继承的父类，称为：直接父类。间接继承的父类称为间接父类（java中一个子类不存在多个父类，只有间接继承，即一个子类的父类是另一个类的子类）
+  多态 可以理解为一个事物的多种形态
+也称为对象的多态性：父类的引用指向子类的对象。 eg：
+class Person{ } class Man extends Person{ } class Women extends Person{ } //对象的多态性，父类的引用指向子类的对象 Person p1 = new Man(); Person p2 = new Women(); 多态性的使用：虚拟方法调用 有了多态性以后，在编译的时候，只能调用父类的声明的方法，而运行时，实际执行的是子类重写父类的方法
+即：编译看左边，运行看右边
+ 多态性的使用前提：①有类的继承；②有方法的重写</description>
+    </item>
+    
     <item>
       <title>第一篇正经博客！</title>
       <link>https://sheephe66.github.io/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E7%BB%8F%E5%8D%9A%E5%AE%A2/</link>

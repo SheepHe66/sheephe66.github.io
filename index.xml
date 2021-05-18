@@ -6,7 +6,544 @@
         <description>Recent content on SheepHe 的小站</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 23 Apr 2021 22:03:34 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 18 May 2021 19:21:07 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>JavaSE 面向对象</title>
+        <link>https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+        <pubDate>Tue, 18 May 2021 19:21:07 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+        <description>&lt;h4 id=&#34;javase--面向对象整合&#34;&gt;JavaSE&amp;ndash;面向对象整合&lt;/h4&gt;
+&lt;h4 id=&#34;面向对象的三条主线&#34;&gt;面向对象的三条主线&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类和类员：属性，方法，构造器，代码块等&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;面向对象的三大特征：封装，继承，多态&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;其他关键字:this,super,abstract,interface,static,
+final,package,import&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;封装&#34;&gt;封装&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;封装性的体现：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我们将类的属性xxx私有化（private），同时，提供公共的（public）方法来获取（getxxx）和设置（setxxx）此属性的值&lt;/li&gt;
+&lt;li&gt;不对外暴露的私有方法&lt;/li&gt;
+&lt;li&gt;单例模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;权限修饰符权限从小到大&#34;&gt;权限修饰符：(权限从小到大)&lt;/h5&gt;
+&lt;p&gt;private   ,     缺省（不写） ,    protected   ,    public&lt;/p&gt;
+&lt;h4 id=&#34;继承&#34;&gt;继承&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;一旦子类A继承了父类B，则子类A就获得了父类B中声明的结构（所有属性、方法等，包括封装性）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java继承的规定&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;单继承性：一个类只能有一个父类&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子父类是相对的概念&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;子类直接继承的父类，称为：直接父类。间接继承的父类称为间接父类（java中一个子类不存在多个父类，只有间接继承，即一个子类的父类是另一个类的子类）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;多态&#34;&gt;多态&lt;/h4&gt;
+&lt;p&gt;可以理解为一个事物的多种形态&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;也称为对象的多态性：父类的引用指向子类的对象。 eg：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Man&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Women&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//对象的多态性，父类的引用指向子类的对象
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Man&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Women&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;多态性的使用虚拟方法调用&#34;&gt;多态性的使用：虚拟方法调用&lt;/h5&gt;
+&lt;p&gt;有了多态性以后，在编译的时候，只能调用父类的声明的方法，而运行时，实际执行的是&lt;strong&gt;子类重写父类的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;即：&lt;strong&gt;编译看左边，运行看右边&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;多态性的使用前提：①有类的继承；②有方法的重写&lt;/p&gt;
+&lt;p&gt;多态性属于&lt;strong&gt;运行时行为&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;​							多态小结
+多态作用： 提高了代码的通用性，常称作接口重用
+前提：需要存在继承或者实现关系, 有方法的重写
+成员方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;编译时：要查看引用变量所声明的类中是否有所调用的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行时：调用实际new的对象所属的类中的重写方法。&lt;/p&gt;
+&lt;p&gt;成员变量：不具备多态性，只看引用变量所声明的类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果没有多态性，则需要写很多重载的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;多态性只使用于方法，不适用于属性&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;构造器&#34;&gt;构造器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;每一个类都有构造器&lt;/li&gt;
+&lt;li&gt;构造器的作用：&lt;strong&gt;①创建对象；②给对象初始化（属性）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1，如果没有显式的定义类的构造器的话，则系统默认提供一个空参的构造器&lt;/p&gt;
+&lt;p&gt;2，定义构造器的格式：&lt;strong&gt;权限修饰符   类名（形参列表）{}&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+    
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3，一个类中可以有多个构造器，彼此构成重载&lt;/p&gt;
+&lt;p&gt;4，没有显式定义的才会有默认构造器，一旦显式的定义了构造器，系统则                不再提供空参构造器&lt;/p&gt;
+&lt;p&gt;5，一个类至少有一个构造器&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6，默认构造器的权限和所在类的权限相同&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;属性赋值顺序&#34;&gt;属性赋值顺序：&lt;/h5&gt;
+&lt;p&gt;①默认初始化&lt;/p&gt;
+&lt;p&gt;②显式初始化&lt;/p&gt;
+&lt;p&gt;③构造器中赋值&lt;/p&gt;
+&lt;p&gt;④通过“对象  .  属性”或“对象  .  方法”赋值&lt;/p&gt;
+&lt;h4 id=&#34;this关键字&#34;&gt;this关键字&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;this相当于：&lt;strong&gt;当前对象或当前正在创建的对象&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用来区分重名的属性和形参&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以用来修饰：&lt;strong&gt;属性，方法，构造器&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;this 调用构造器：（根据参数列表调用）&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;//调用空参的构造器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;形参列表&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;规定：调用构造器时，“this（形参列表）”必须声明在当前构造器的首行&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;构造器中不能用this调用自己，只能调其他的构造器&lt;/p&gt;
+&lt;p&gt;如果一个类中有n个构造器，则最多只能有n-1个this调用构造器，不能往回调&lt;/p&gt;
+&lt;h4 id=&#34;super关键字&#34;&gt;super关键字&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;super理解为：父类的（类似this用法）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;super可以调用 属性、方法、构造器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以在子类的方法或构造器中，通过 super . 属性 或 super . 方法的方式，显式的调用父类中声明的属性或方法。通常情况下，习惯省略super&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;特殊的，子类和父类定义了同名的属性时，此时若要调用父类的属性，必须使用super调用父类的&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;父类方法被重写后，需要使用super调用父类中的被重写的方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;super调用父类构造器&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;形参列表&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;super（形参列表）必须声明在构造器的首行&lt;/li&gt;
+&lt;li&gt;this（形参列表）和super（形参列表）不能同时出现&lt;/li&gt;
+&lt;li&gt;默认调用super（空）&lt;/li&gt;
+&lt;li&gt;在类的多个构造器中，至少有一个类的构造器是用来super（形参列表）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;方法详解&#34;&gt;方法详解&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;方法的重载&lt;/li&gt;
+&lt;li&gt;可变形参的方法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方法参数的值传递机制&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;递归方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;方法重载&#34;&gt;方法重载：&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;与返回值无关，只看参数列表且参数列表必须不同（参数个数或参数类型）&lt;/p&gt;
+&lt;p&gt;调用时，根据方法参数列表的不同来区别&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下方法都是重载：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getsum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getsum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getsum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getsum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;即使是参数列表顺序不同，也构成重载，根据传递参数顺序调用具体的函数&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;跟方法的权限修饰符，返回值类型，形参变量名，方法体都无关&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;通过对象调用方法时，如何确定某一指定方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;先看方法名，如果有重载，再根据参数列表判断（方法名&amp;mdash;&amp;mdash;&amp;gt;参数列表）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;可变个数的形参&#34;&gt;可变个数的形参：&lt;/h5&gt;
+&lt;p&gt;1.JDK5.0新增内容,调用可变个数形参时，可以传入多个参数&lt;/p&gt;
+&lt;p&gt;2.具体使用：&lt;/p&gt;
+&lt;p&gt;​       格式：变量类型&amp;hellip;形参变量名，eg：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;//调用时可以同时传递多个参数
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;world&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;he&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;JDK5.0以前需要传递多个参数时，使用的是数组，因此可变形参新特性不能续数组共存（会构成重载）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//以下方法构成重载（表示的是同一个东西）
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;方法的形参传递机制值传递&#34;&gt;方法的形参传递机制：值传递&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机制：如果参数是引用数据类型，此时实参赋给形参的是实参存储数据的地址&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;swap(a,b);&lt;/p&gt;
+&lt;p&gt;只有参数类类型为引用数据类型（类的对象）时才能交换，eg：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;punlic&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;关于变量赋值：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果变量是基本数据类型，此时传递的是保存数据的值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果变量是引用数据类型，此时传递的是保存数据的地址&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;递归方法&#34;&gt;递归方法&lt;/h5&gt;
+&lt;p&gt;方法内调用方法本身，例如，斐波那契数列，汉诺塔问题&lt;/p&gt;
+&lt;h4 id=&#34;方法的重写&#34;&gt;方法的重写&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;override  /  overwrite&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;重写：子类继承父类以后，可以对父类中同名同参数的方法进行覆盖操作（适当改变方法体的内容）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应用：重写以后，当创建类对象以后，通过&lt;strong&gt;子类对象&lt;/strong&gt;调用父类中的同名同参数的方法时，实际执行的是子类重写父类的方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重写的规定：&lt;/p&gt;
+&lt;p&gt;​	方法的声明：&lt;strong&gt;权限修饰符	返回值类型	方法名（形参列表）{&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​									&lt;strong&gt;//方法体（不同）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​						&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;约定俗称：子类中的叫重写的方法，父类中的叫被重写的方法&lt;/p&gt;
+&lt;p&gt;①两个方法的方法名和形参列表必须相同，方法体不同&lt;/p&gt;
+&lt;p&gt;②子类中的重写的方法权限修饰符不小于父类中的被重写的&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips：子类不能重写父类中的声明为private权限的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;③返回值类型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;父类中被重写的方法是返回值类型是void类型，则子类中返回值只能是void 类型&lt;/li&gt;
+&lt;li&gt;父类中被重写的方法是返回值类型是A类型，则子类中可以是A类型或A类型的子类&lt;/li&gt;
+&lt;li&gt;父类中被重写的方法是返回值类型是基本数据类型，则子类中必须是相同的基本数据类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;tostring的使用&#34;&gt;toString()的使用&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;输出一个对象的引用时，实际上就是调用当前对象的toString()方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;调用父类的构造器：super.toString&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;？如何实现调用父类的父类的toString方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;将根父类（父类的父类）中重写的toString方法体放在一个新的方法中,例如：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@override
+public String getToString(){
+    return id + name + age + salary;
+}
+public String toString(){
+    return getToString;//return id + name + age + salary;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;接着在子类的子类中调用 ：getToString()方法&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;instanceof关键字&#34;&gt;instanceof关键字&lt;/h4&gt;
+&lt;h5 id=&#34;instanceof关键字的使用&#34;&gt;instanceof关键字的使用&lt;/h5&gt;
+&lt;h5 id=&#34;多态性的弊端&#34;&gt;多态性的弊端&lt;/h5&gt;
+&lt;p&gt;有了多态性以后，内存中实际上是加载了子类所特有的属性和方法，但由于变量声明为父类类型(eg：Person p1 = new Man(); ),所以导致编译时，&lt;strong&gt;p1对象只能调用父类中声明的属性和方法（包括子类重写的），而不能调用子类所特有的属性和方法&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;向下转型&#34;&gt;向下转型&lt;/h5&gt;
+&lt;p&gt;目的就是：&lt;strong&gt;调用子类特有的属性和方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;向下转型：使用强制类型转换符&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Man&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Man&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Man&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//将声明为Person类型的对象强转为Man类型
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;将子类赋给父类&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;向上转型&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;：&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;多态&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;是自动类型提升&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;而将父类赋给子类则需要强转&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;为了避免向下转型时出现异常&lt;/strong&gt;，转型前使用instanceof关键字进行判断，若返回true，继续；返回false，不继续向下转型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;a instanceof A  :判断对象a是否是类A的实例，如果是，返回true；如果不是，返回false&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 a instanceof A返回true，a instanceof B 也返回true，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其中B是A的父类&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;static关键字&#34;&gt;static关键字&lt;/h4&gt;
+&lt;p&gt;有些属性是每个对象都共同拥有，不用给每个对象都定义，static针对的是类，不针对具体的对象，每个对象都公共的拥有同一个static变量&lt;/p&gt;
+&lt;h5 id=&#34;static关键字的使用&#34;&gt;static关键字的使用&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;static：静态的&lt;/li&gt;
+&lt;li&gt;static可以修饰&lt;strong&gt;属性、方法、代码块、内部类&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h5 id=&#34;static修饰属性&#34;&gt;static修饰属性&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;static修饰的属性称为&lt;strong&gt;静态变量( 或类变量)&lt;/strong&gt;，非static修饰的属性称为&lt;strong&gt;实例变量&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可以通过类直接调用静态属性&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;静态属性随着类的加载而加载&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;实例变量&lt;/strong&gt;：我们创建了多个对象，每个对象都独立的拥有一套非静态属性。当通过其中一个对象修改非静态属性时，&lt;strong&gt;其他对象的此属性不会被影响&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;静态变量&lt;/strong&gt;：我们创建了多个对象，这多个对象共同享有同一个静态变量。&lt;strong&gt;通过一个对象修改静态属性时，由于静态属性时公共的，因此其他对象再调用此静态变量时，是被修改过的&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;栈：局部变量&lt;/p&gt;
+&lt;p&gt;堆：new出来的结构：对象、数组&lt;/p&gt;
+&lt;p&gt;方法区：类的加载信息、静态域、常量池&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;static修饰方法&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;静态方法中不能调用非静态的属性或方法(因为非静态的生命周期不够，静态方法加载完成时还没有非静态的)&lt;/li&gt;
+&lt;li&gt;在静态的方法内，不能使用this、super关键字（this、super都基于当前对象）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;属性：开发中，当属性可以被多个对象共享，不会随着对象的改变而改变时，可以定义为static&lt;/li&gt;
+&lt;li&gt;方法：工具类中的方法，习惯声明为static&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;heading&#34;&gt;&lt;/h4&gt;
+&lt;h3 id=&#34;包装类wrapper&#34;&gt;包装类(Wrapper)&lt;/h3&gt;
+&lt;h4 id=&#34;包装类介绍&#34;&gt;包装类介绍&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;希望让八种基本数据类型具有类的特征&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;针对八种基本数据类型定义相应的引用类型&amp;mdash;&amp;ndash;包装类(封装类)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;基本数据类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;包装类&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;byte&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Byte&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;short&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Short&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;int&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Integer&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;long&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Long&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Float&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Double&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Boolean&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;char&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;Character&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;基本数据类型包装类之间的转换&#34;&gt;基本数据类型、包装类之间的转换&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//基本数据类型---&amp;gt;包装类:调用包装类的构造器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;//包装类---&amp;gt;基本数据类型:调用xxx包装类的xxxValue()
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;intValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;Float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Float&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;floatValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;jdk-50新特性自动装箱与自动拆箱&#34;&gt;JDK 5.0新特性：自动装箱与自动拆箱&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;自动装箱：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//自动实现基本数据类型---&amp;gt;包装类(不用调用构造器)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//自动装箱
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;自动拆箱：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//自动实现包装类---&amp;gt;基本数据类型(不用调用xxx.Value())
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//自动拆箱
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id=&#34;string类与基本数据类型包装类之间的转换&#34;&gt;String类与基本数据类型、包装类之间的转换&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//String类型---&amp;gt;基本数据类型、包装类:调用包装类型的               parsexxx(String str)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;parseInt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;//125
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//基本数据类型、包装类---&amp;gt;String类型:调用String重载的             ValueOf(Xxx xxx)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;valueOf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;	 &lt;span class=&#34;c1&#34;&gt;//10.12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;抽象类与抽象方法&#34;&gt;抽象类与抽象方法&lt;/h3&gt;
+&lt;h4 id=&#34;abstract&#34;&gt;abstract&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;抽象的，不实例&lt;/li&gt;
+&lt;li&gt;可以修饰：类、方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;抽象类&#34;&gt;抽象类：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;此类不能实例化，即不能造此类的对象&lt;/li&gt;
+&lt;li&gt;但一定有构造器，因为此类的子类继承后，还需要调用此父类的构造器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;抽象方法&#34;&gt;抽象方法：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;没有方法体，没有大括号，只有方法的声明&lt;/li&gt;
+&lt;li&gt;由于没有方法体，所以不能用对象调用，因此&lt;strong&gt;包含抽象方法的类一定是抽象类&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;若子类重写了父类的&lt;strong&gt;所有抽象方法&lt;/strong&gt;后，才能实例化；若子类没有重写父类的抽象的方法，则子类必须是抽象类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;abstract使用注意点&#34;&gt;abstract使用注意点：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;不能用来修饰属性、构造器、代码块等结构&lt;/li&gt;
+&lt;li&gt;不能用来修饰私有方法（子类必须重写抽象父类的方法，但private不能被重写&lt;/li&gt;
+&lt;li&gt;不能用来修饰静态方法、final方法、final类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;抽象类的匿名子类&#34;&gt;抽象类的匿名子类：&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Person&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(){&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;//子类的重写的方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nd&#34;&gt;@override&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;单例设计模式&#34;&gt;单例设计模式&lt;/h4&gt;
+&lt;p&gt;让一个类只能存在一个对象实例，并且该类只提供一个获得其对象实例的方法，如果我们要让类在虚拟机中只能产生一个对象，首先要将类的构造器访问权限设置为&lt;strong&gt;private&lt;/strong&gt;,这样就不能用new操作符在类的外部产生类的对象了。由于在类的外部无法得到类的对象，只能调用该类的静态get方法以返回类内部创建的对象。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;单例设计模式主要分四步：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.将类的构造器设置为私有&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.类内部创建类的对象（私有、静态）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.提供共有的静态方法从类外获取类的对象&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.步骤二中对象也必须声明为静态的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;单例设计模式主要有：&lt;strong&gt;饿汉式&lt;/strong&gt; 和 &lt;strong&gt;懒汉式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;饿汉式：提前创建好对象，安全但占用多余空间&lt;/p&gt;
+&lt;p&gt;懒汉式：对象在需要用的时候再创建，节省空间但不够安全&lt;/p&gt;
+&lt;h3 id=&#34;异常&#34;&gt;异常&lt;/h3&gt;
+&lt;p&gt;java.lang.Throwable:&lt;/p&gt;
+&lt;p&gt;​		&amp;gt;java.lang.Error:一般不编写针对代码处理&lt;/p&gt;
+&lt;p&gt;​		&amp;gt;java.lang.Exception:异常一般指这个，可以进行异常的处理&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exception分为：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;编译时异常（checked）：&lt;/p&gt;
+&lt;p&gt;IOException —&amp;gt;FileNotFoundException&lt;/p&gt;
+&lt;p&gt;ClassNotFoundException&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行时异常（unchecked, RuntimeException）:&lt;/p&gt;
+&lt;p&gt;NullPointerException&lt;/p&gt;
+&lt;p&gt;ArrayIntexOutOfBoundsException&lt;/p&gt;
+&lt;p&gt;ClassCastException&lt;/p&gt;
+&lt;p&gt;NumberFormatException&lt;/p&gt;
+&lt;p&gt;InputMismatchException&lt;/p&gt;
+&lt;p&gt;ArithmetiException&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;异常处理&#34;&gt;异常处理&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;抓抛模型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;过程一&amp;quot;抛&amp;quot;：程序在正常执行的过程中，一旦出现异常，就会在异常处生成一个异常类的对象，并将此对象抛出。&lt;/p&gt;
+&lt;p&gt;一旦抛出对象以后，其后的代码不再执行&lt;/p&gt;
+&lt;p&gt;过程二：&amp;ldquo;抓&amp;rdquo;：可以理解为异常的处理方式：&lt;/p&gt;
+&lt;p&gt;​		①try—catch—finally&lt;/p&gt;
+&lt;p&gt;​		②throws&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//try-catch-finally的使用
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;//可能出现异常的代码
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;异常类型1&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;变量名1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;//处理异常的方式1
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;异常类型2&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;变量名2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;//处理异常的方式2
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;异常类型3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;变量名3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;//处理异常的方式3
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;....&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;finally&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; 		&lt;span class=&#34;c1&#34;&gt;//一定会执行的代码
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;异常处理方式二： throws  +   异常类型&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;throws  +  异常类型&amp;rdquo; 写在方法的声明处。指明此方法执行时，可能会抛出的异常类型&lt;/p&gt;
+&lt;p&gt;一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类常时，就会被抛出。异常代码后续的代码不再执行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;体会：try—catch—finally：&lt;strong&gt;真正地将异常处理了&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​			throws：只是将异常抛给了方法的调用者，并没有处理&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;子类重写方法异常的规则&#34;&gt;子类重写方法异常的规则：&lt;/h4&gt;
+&lt;p&gt;子类重写的方法中throws的异常类型&lt;strong&gt;只能小于等于&lt;/strong&gt;父类中的异常类型，子类中也可以没有&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;开发中如何选择trycatchfinally---or---throws-&#34;&gt;开发中如何选择？（try—catch—finally   or   throws ）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;如果父类中被重写的方法没有throws方式处理异常，则子类中也不能用throws，此时如果子类中如果有异常，必须使用try-catch-finally处理。&lt;/li&gt;
+&lt;li&gt;执行的方法A中，先后又调用了另外的几个方法，这几个方法是递进关系执行的。建议让这几个方法使用throws处理，而执行的方法A可以考虑使用try-catch-finally处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;手动抛出异常&#34;&gt;手动抛出异常&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;throw new 异常对象名();&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;异常对象需要继承于异常体系，一般写 Exception 或 RuntimeException&lt;/p&gt;
+&lt;p&gt;也可以自定义，但必须继承于异常体系&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>第一篇正经博客！</title>
         <link>https://sheephe66.github.io/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E7%BB%8F%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Fri, 23 Apr 2021 22:03:34 +0800</pubDate>
