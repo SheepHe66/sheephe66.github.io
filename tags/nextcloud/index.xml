@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NextCloud on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/nextcloud/</link>
+    <description>Recent content in NextCloud on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Nov 2021 22:04:39 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NextCloud搭建私有云</title>
+      <link>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+      <pubDate>Tue, 16 Nov 2021 22:04:39 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
+      <description>使用NextCloud和阿里云服务器搭建私人网盘 其实搭这个网盘也不是说度盘限速个人隐私什么的，主要是因为刚买了个云服务器，就想整点活儿，感觉搭个私人网盘还挺有意思的，用来存点资料还是可以的，但大的文件就不行了，因为买的最基础的ECS n4配置，系统盘最大就只给100G。。真要存东西还得上NAS。
+本篇文章就记录一下搭建网盘的过程，过程中主要使用的是宝塔Linux面板进行站点搭建的，纯Linux命令行应该也可以，但我命令用的还是不熟练，宝塔面板非常方便好用，大大节省了时间。
+云服务器安装宝塔Linux面板 不同的操作系统对应不同的命令，我的服务器安装的是Ubantu，ssh连接到服务器后，切换到root权限，输入对应命令即可
+ CentOS安装命令  yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh  Ubantu/Deepin安装命令  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh  Debian安装命令  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; bash install.sh 安装完成后，就可以得到宝塔面板的访问地址和默认管理员账户(需要保存下来)
+登录宝塔面板并搭建站点 直接进外网地址可能无法访问，是因为阿里云后台没有开放端口号，宝塔面板访问地址默认端口号是：8888，需要进阿里云后台配置安全组规则开放8888端口（也可以修改），后面搭建站点也是同理，若没有域名，用ip + 端口号访问的话，用哪一个端口，就要去阿里云安全组放行对应端口。
+放行后，登陆成功！
+安装Nginx、php等组件 推荐使用LNMP极速安装（这里不小心踩了个坑，php最好安装最新版本，因为在我弄好之后访问NextCloud时，提示php的版本最低要7.3。。。不过还好可以直接升级）
+接下来就等待安装即可，大概下载了20分钟
+接下来需要安装两个扩展插件
+如果有域名的话，可以为域名申请SSL证书，就是用https加密，不会出现不安全的标志。按理说也可以直接给服务器ip直接申请SSL证书，但我点击申请却出错了，不知道为啥。。。不过有没有不影响使用。
+安装NextCloud  NextCloud官网下载Linux版的压缩包，宝塔面板上传到服务器   解压安装到站点目录  OK，接下来就可以直接访问了！
+此处就是创建一个管理员账户，登陆进去后，可以在为其他用户分配普通权限账户，还可以分配账户的可用存储容量。</description>
+    </item>
+    
+  </channel>
+</rss>

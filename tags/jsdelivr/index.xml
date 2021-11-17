@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jsDelivr on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/jsdelivr/</link>
+    <description>Recent content in jsDelivr on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Nov 2021 13:31:09 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/jsdelivr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JsDelivr加速图床</title>
+      <link>https://sheephe66.github.io/p/jsdelivr%E5%8A%A0%E9%80%9F%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Wed, 10 Nov 2021 13:31:09 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/jsdelivr%E5%8A%A0%E9%80%9F%E5%9B%BE%E5%BA%8A/</guid>
+      <description>Github + jsDelivr + PicGo加速图床 单独使用GitHub做图床，在国内访问时速度加载较慢，记录一下使用免费CDN
+（jsDelivr）给图床加速
+  先创建一个GitHub仓库，用于保存博客上传的图片，在设置中获取token
+  下载安装PicGo，将上面获取的token，填到PicGo配置中
+  完成PicGO图床配置，使用jsDelivr就是在PicGo配置最后的自定义域名中填上jsDelivr的加速链接
+  加速链接：https://cdn.jsdelivr.net/gh/SheepHe66/BlogPictures@main
+ gh 表示 Github仓库 SheepHe66/BlogPictures 表示 仓库名 main 表示 分支     最后配合博客使用，就在Typora偏好设置中，选择图像，选择使用PicGo（app）上传图片，并添加PicGo安装路径  这样，就好了~~</description>
+    </item>
+    
+  </channel>
+</rss>
