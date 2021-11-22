@@ -6,14 +6,22 @@
         <description>Recent content on SheepHe&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 16 Nov 2021 22:04:39 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 Nov 2021 19:12:05 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>测试</title>
+        <link>https://sheephe66.github.io/p/post/</link>
+        <pubDate>Mon, 22 Nov 2021 19:12:05 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/post/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/11.jpg" alt="Featured image of post 测试" /&gt;&lt;p&gt;bbb&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>NextCloud搭建私有云</title>
-        <link>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+        <link>https://sheephe66.github.io/p/post/</link>
         <pubDate>Tue, 16 Nov 2021 22:04:39 +0800</pubDate>
         
-        <guid>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
-        <description>&lt;h3 id=&#34;使用nextcloud和阿里云服务器搭建私人网盘&#34;&gt;使用NextCloud和阿里云服务器搭建私人网盘&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/SheepHe66/BlogPictures@main/img/20211116223100.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+        <guid>https://sheephe66.github.io/p/post/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/0.jpg" alt="Featured image of post NextCloud搭建私有云" /&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/SheepHe66/BlogPictures@main/img/20211116223100.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;其实搭这个网盘也不是说度盘限速个人隐私什么的，主要是因为刚买了个云服务器，就想整点活儿，感觉搭个私人网盘还挺有意思的，用来存点资料还是可以的，但大的文件就不行了，因为买的最基础的ECS n4配置，系统盘最大就只给100G。。真要存东西还得上NAS。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/SheepHe66/BlogPictures@main/img/20211116223151.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;本篇文章就记录一下搭建网盘的过程，过程中主要使用的是宝塔Linux面板进行站点搭建的，纯Linux命令行应该也可以，但我命令用的还是不熟练，宝塔面板非常方便好用，大大节省了时间。&lt;/p&gt;
@@ -610,16 +618,6 @@ CORS 是通过设置一个响应头来告诉浏览器，该请求允许跨域，
 res.set(&amp;ldquo;Access-Control-Allow-Origin&amp;rdquo;,&amp;quot;*&amp;quot;);
 res.send(&amp;ldquo;testAJAX 返回的响应&amp;rdquo;);
 });&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>测试图片</title>
-        <link>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/</link>
-        <pubDate>Wed, 27 Oct 2021 18:02:33 +0800</pubDate>
-        
-        <guid>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/</guid>
-        <description>&lt;h4 id=&#34;插入图片&#34;&gt;插入图片&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/20211103211330.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 </description>
         </item>
         <item>

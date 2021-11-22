@@ -6,14 +6,23 @@
     <description>Recent content in Posts on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Nov 2021 22:04:39 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Nov 2021 19:12:05 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>测试</title>
+      <link>https://sheephe66.github.io/p/post/</link>
+      <pubDate>Mon, 22 Nov 2021 19:12:05 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/post/</guid>
+      <description>bbb</description>
+    </item>
+    
     <item>
       <title>NextCloud搭建私有云</title>
-      <link>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+      <link>https://sheephe66.github.io/p/post/</link>
       <pubDate>Tue, 16 Nov 2021 22:04:39 +0800</pubDate>
       
-      <guid>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
-      <description>使用NextCloud和阿里云服务器搭建私人网盘 其实搭这个网盘也不是说度盘限速个人隐私什么的，主要是因为刚买了个云服务器，就想整点活儿，感觉搭个私人网盘还挺有意思的，用来存点资料还是可以的，但大的文件就不行了，因为买的最基础的ECS n4配置，系统盘最大就只给100G。。真要存东西还得上NAS。
+      <guid>https://sheephe66.github.io/p/post/</guid>
+      <description>其实搭这个网盘也不是说度盘限速个人隐私什么的，主要是因为刚买了个云服务器，就想整点活儿，感觉搭个私人网盘还挺有意思的，用来存点资料还是可以的，但大的文件就不行了，因为买的最基础的ECS n4配置，系统盘最大就只给100G。。真要存东西还得上NAS。
 本篇文章就记录一下搭建网盘的过程，过程中主要使用的是宝塔Linux面板进行站点搭建的，纯Linux命令行应该也可以，但我命令用的还是不熟练，宝塔面板非常方便好用，大大节省了时间。
 云服务器安装宝塔Linux面板 不同的操作系统对应不同的命令，我的服务器安装的是Ubantu，ssh连接到服务器后，切换到root权限，输入对应命令即可
  CentOS安装命令  yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh  Ubantu/Deepin安装命令  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh  Debian安装命令  wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; bash install.sh 安装完成后，就可以得到宝塔面板的访问地址和默认管理员账户(需要保存下来)
@@ -61,15 +70,6 @@
       
       <guid>https://sheephe66.github.io/p/ajax%E7%AC%94%E8%AE%B0/</guid>
       <description>文章目录  Ajax概述 1.1 AJAX 简介 1.2 XML 简介 1.3 AJAX 的特点 1.3.1 AJAX 的优点 1.3.2 AJAX 的缺点 HTTP相关问题 2.1 MDN 文档 2.2 HTTP 请求交互的基本过程 2.3 HTTP 请求报文 请求行 多个请求头 请求体 2.4 HTTP 响应报文 2.5 post 请求体参数格式 2.6 常见的响应状态码 2.7 不同类型的请求及其作用 2.8 API 的分类 2.9 区别 一般http请求 与 ajax请求 原生AJAX 的基本使用 XHR 3.0 准备工作 3.0.1 安装node.js 3.0.2 安装express（服务端框架） 3.0.3 安装nodemon自动重启工具 3.1 理解 3.2 核心对象使用步骤 3.2.1 创建XMLHttpRequest 对象 3.2.2 设置请求信息（请求方法和url） 3.2.3 发送请求 3.</description>
-    </item>
-    
-    <item>
-      <title>测试图片</title>
-      <link>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/</link>
-      <pubDate>Wed, 27 Oct 2021 18:02:33 +0800</pubDate>
-      
-      <guid>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95%E5%9B%BE%E7%89%87/</guid>
-      <description>插入图片 </description>
     </item>
     
     <item>
