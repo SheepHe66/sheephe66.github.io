@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 16 Nov 2021 22:04:39 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NextCloud搭建私有云</title>
-      <link>https://sheephe66.github.io/p/post/</link>
+      <link>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</link>
       <pubDate>Tue, 16 Nov 2021 22:04:39 +0800</pubDate>
       
-      <guid>https://sheephe66.github.io/p/post/</guid>
+      <guid>https://sheephe66.github.io/p/nextcloud%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
       <description>其实搭这个网盘也不是说度盘限速个人隐私什么的，主要是因为刚买了个云服务器，就想整点活儿，感觉搭个私人网盘还挺有意思的，用来存点资料还是可以的，但大的文件就不行了，因为买的最基础的ECS n4配置，系统盘最大就只给100G。。真要存东西还得上NAS。
 本篇文章就记录一下搭建网盘的过程，过程中主要使用的是宝塔Linux面板进行站点搭建的，纯Linux命令行应该也可以，但我命令用的还是不熟练，宝塔面板非常方便好用，大大节省了时间。
 云服务器安装宝塔Linux面板 不同的操作系统对应不同的命令，我的服务器安装的是Ubantu，ssh连接到服务器后，切换到root权限，输入对应命令即可
