@@ -79,7 +79,7 @@
         <pubDate>Wed, 10 Nov 2021 13:31:09 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/jsdelivr%E5%8A%A0%E9%80%9F%E5%9B%BE%E5%BA%8A/</guid>
-        <description>&lt;h2 id=&#34;github--jsdelivr--picgo加速图床&#34;&gt;Github + jsDelivr + PicGo加速图床&lt;/h2&gt;
+        <description>&lt;img src="https://sheephe66.github.io/2.jpg" alt="Featured image of post JsDelivr加速图床" /&gt;&lt;h2 id=&#34;github--jsdelivr--picgo加速图床&#34;&gt;Github + jsDelivr + PicGo加速图床&lt;/h2&gt;
 &lt;p&gt;单独使用GitHub做图床，在国内访问时速度加载较慢，记录一下使用免费CDN&lt;/p&gt;
 &lt;p&gt;（jsDelivr）给图床加速&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/SheepHe66/BlogPictures@main/img/20211110140150.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
@@ -116,7 +116,7 @@
         <pubDate>Tue, 09 Nov 2021 20:17:55 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
-        <description>&lt;p&gt;双十一B站UP主给阿里云做活动，买云服务器满58返现60，本来想着白嫖一年的，但又想好好利用新用户的优惠，就买了三年的，170再返现60，相当于110买了三年，感觉很赚。。&lt;/p&gt;
+        <description>&lt;img src="https://sheephe66.github.io/1.jpg" alt="Featured image of post 阿里云服务器安装配置" /&gt;&lt;p&gt;双十一B站UP主给阿里云做活动，买云服务器满58返现60，本来想着白嫖一年的，但又想好好利用新用户的优惠，就买了三年的，170再返现60，相当于110买了三年，感觉很赚。。&lt;/p&gt;
 &lt;h4 id=&#34;服务器基本配置&#34;&gt;服务器基本配置&lt;/h4&gt;
 &lt;p&gt;阿里云ECS   n4      1核 2G  1M带宽&lt;/p&gt;
 &lt;p&gt;操作系统：ubantu 20.04&lt;/p&gt;
