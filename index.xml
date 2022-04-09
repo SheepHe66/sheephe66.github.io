@@ -6,7 +6,25 @@
         <description>Recent content on SheepHe&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 22 Nov 2021 19:12:05 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 09 Apr 2022 20:35:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>导入Module</title>
+        <link>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</link>
+        <pubDate>Sat, 09 Apr 2022 20:35:08 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/3.jpg" alt="Featured image of post 导入Module" /&gt;&lt;h4 id=&#34;解决idea中-module-变成目录无法运行的问题&#34;&gt;解决Idea中 Module 变成目录无法运行的问题&lt;/h4&gt;
+&lt;p&gt;在Idea中，有时将项目中的 Module remove 之后，如何将蓝色小方块恢复，使其重新变成Module&lt;/p&gt;
+&lt;p&gt;或者将别人的项目导入时，也需要通过这种方法，将其从目录的性转换成Module 来运行&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;右击项目根目录，Open Module Settings&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sheephe66.github.io/C:%5cUsers%5chyy000%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220117172733564.png&#34; alt=&#34;image-20220117172733564&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;点击Modules，import Module&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sheephe66.github.io/C:%5cUsers%5chyy000%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220117172807923.png&#34; alt=&#34;image-20220117172807923&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;选择Maven&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sheephe66.github.io/C:%5cUsers%5chyy000%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20220117172928181.png&#34; alt=&#34;image-20220117172928181&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;然后点击finish，Apply即可&lt;/strong&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>测试</title>
         <link>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Mon, 22 Nov 2021 19:12:05 +0800</pubDate>
@@ -149,7 +167,7 @@
         <pubDate>Sat, 06 Nov 2021 22:29:21 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/ajax%E7%AC%94%E8%AE%B0/</guid>
-        <description>&lt;h3 id=&#34;文章目录&#34;&gt;文章目录&lt;/h3&gt;
+        <description>&lt;img src="https://sheephe66.github.io/6.jpg" alt="Featured image of post Ajax笔记" /&gt;&lt;h3 id=&#34;文章目录&#34;&gt;文章目录&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Ajax概述
 1.1 AJAX 简介
@@ -626,7 +644,7 @@ res.send(&amp;ldquo;testAJAX 返回的响应&amp;rdquo;);
         <pubDate>Tue, 18 May 2021 19:21:07 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
-        <description>&lt;h4 id=&#34;javase--面向对象整合&#34;&gt;JavaSE&amp;ndash;面向对象整合&lt;/h4&gt;
+        <description>&lt;img src="https://sheephe66.github.io/5.jpg" alt="Featured image of post JavaSE 面向对象" /&gt;&lt;h4 id=&#34;javase--面向对象整合&#34;&gt;JavaSE&amp;ndash;面向对象整合&lt;/h4&gt;
 &lt;h4 id=&#34;面向对象的三条主线&#34;&gt;面向对象的三条主线&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;类和类员：属性，方法，构造器，代码块等&lt;/strong&gt;&lt;/li&gt;
@@ -1163,7 +1181,7 @@ public String toString(){
         <pubDate>Fri, 23 Apr 2021 22:03:34 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%AD%A3%E7%BB%8F%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;p&gt;我的博客终于搭建成功了，真是不容易啊！！！今天来写篇正经博客！&lt;/p&gt;
+        <description>&lt;img src="https://sheephe66.github.io/7.jpg" alt="Featured image of post 第一篇正经博客！" /&gt;&lt;p&gt;我的博客终于搭建成功了，真是不容易啊！！！今天来写篇正经博客！&lt;/p&gt;
 &lt;p&gt;目前博客只有两篇文章，不过都是用来测试的。。。第一篇FirstBlog是博客首次本地启动的时候随便写的用来测试本地有没有启动成功的，第二篇计算机网络脉络梳理，  作为第二次测试记得好像是已经搭建好了，也部署到Github上去了，然后测试更新文章来着。emmm······看起来是很干货，其实是从B站UP主CodeSheep(一个宝藏程序猿UP)的的一期干货视频里做的笔记，主要是针对面试的计算机网络学习路线梳理。因为这个已经是总结好的了，反正以后也是要发的，就干脆作为测试发布了。&lt;/p&gt;
 &lt;p&gt;第一篇(正经)博客，不知道写啥，那还是来聊聊我的博客是怎么搭建的吧，毕竟搭博客的过程中踩了太多坑了。。。我还截了好多图，必须记录一下！&lt;/p&gt;
 &lt;p&gt;我其实很早就想弄一个自己的个人博客网站了，作为一个非计算机专业的我觉得这很酷。大概去年吧，还真的去尝试了一下，很显然，以失败告终。。。当时是在知乎上找的教程，那上面让去Github上面clone别人的博客框架，看着教程简单，但第一步就出错了，一个按钮直接变成灰色不让我点。。。WTF！然后就没有然后了。但前一段时间在B站关注了一个宝藏程序猿UP，就是上面提到的CodeSheep，我羊哥！视频、微信公众号全是干货，好家伙，简直我的最爱呀！翻到以前的视频，好几期都是关于小白如何搭建自己的个人博客的，还说博客对以后的面试会很有帮助，一下子就让我重新燃起了自信！于是选了一个简单点Hugo博客框架，但由于他是MAC OS，我又去CSDN找了一个详细的教程，就开始了。&lt;/p&gt;
@@ -1200,7 +1218,7 @@ git push -u -origin master&lt;/p&gt;
         <pubDate>Mon, 19 Apr 2021 17:37:55 +0800</pubDate>
         
         <guid>https://sheephe66.github.io/p/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%84%89%E7%BB%9C%E6%A2%B3%E7%90%86/</guid>
-        <description>&lt;h3 id=&#34;计算机网络脉络梳理&#34;&gt;计算机网络脉络梳理&lt;/h3&gt;
+        <description>&lt;img src="https://sheephe66.github.io/4.jpg" alt="Featured image of post 计算机网络脉络梳理" /&gt;&lt;h3 id=&#34;计算机网络脉络梳理&#34;&gt;计算机网络脉络梳理&lt;/h3&gt;
 &lt;p&gt;主要指&lt;strong&gt;TCP/IP 协议栈&lt;/strong&gt;，大部分隐藏于操作系统内核（数据链路层，网络层，传输层），封装于操作系统内部，但是要&lt;strong&gt;了解原理&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;数据链路层&lt;/p&gt;
 &lt;p&gt;网络层：IP&lt;/p&gt;

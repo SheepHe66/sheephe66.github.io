@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDEA on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/idea/</link>
+    <description>Recent content in IDEA on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Apr 2022 20:35:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>导入Module</title>
+      <link>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</link>
+      <pubDate>Sat, 09 Apr 2022 20:35:08 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</guid>
+      <description>解决Idea中 Module 变成目录无法运行的问题 在Idea中，有时将项目中的 Module remove 之后，如何将蓝色小方块恢复，使其重新变成Module
+或者将别人的项目导入时，也需要通过这种方法，将其从目录的性转换成Module 来运行
+右击项目根目录，Open Module Settings
+点击Modules，import Module
+选择Maven
+然后点击finish，Apply即可</description>
+    </item>
+    
+  </channel>
+</rss>

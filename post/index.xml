@@ -6,7 +6,21 @@
     <description>Recent content in Posts on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Nov 2021 19:12:05 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 20:35:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>导入Module</title>
+      <link>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</link>
+      <pubDate>Sat, 09 Apr 2022 20:35:08 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</guid>
+      <description>解决Idea中 Module 变成目录无法运行的问题 在Idea中，有时将项目中的 Module remove 之后，如何将蓝色小方块恢复，使其重新变成Module
+或者将别人的项目导入时，也需要通过这种方法，将其从目录的性转换成Module 来运行
+右击项目根目录，Open Module Settings
+点击Modules，import Module
+选择Maven
+然后点击finish，Apply即可</description>
+    </item>
+    
     <item>
       <title>测试</title>
       <link>https://sheephe66.github.io/p/%E6%B5%8B%E8%AF%95/</link>

@@ -31,7 +31,7 @@ class Person{ } class Man extends Person{ } class Women extends Person{ } //对�
  多态性的使用前提：①有类的继承；②有方法的重写'>
 <meta property='og:url' content='https://sheephe66.github.io/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
 <meta property='og:site_name' content='SheepHe&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaSE' /><meta property='article:published_time' content='2021-05-18T19:21:07&#43;08:00'/><meta property='article:modified_time' content='2021-05-18T19:21:07&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaSE' /><meta property='article:published_time' content='2021-05-18T19:21:07&#43;08:00'/><meta property='article:modified_time' content='2021-05-18T19:21:07&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/5.jpg' />
 <meta name="twitter:title" content="JavaSE 面向对象">
 <meta name="twitter:description" content="JavaSE&amp;ndash;面向对象整合 面向对象的三条主线  类和类员：属性，方法，构造器，代码块等 面向对象的三大特征：封装，继承，多态 其他关键字:this,super,abstract,interface,static, final,package,import  封装 封装性的体现：
  我们将类的属性xxx私有化（private），同时，提供公共的（public）方法来获取（getxxx）和设置（setxxx）此属性的值 不对外暴露的私有方法 单例模式  权限修饰符：(权限从小到大) private , 缺省（不写） , protected , public
@@ -44,7 +44,8 @@ Java继承的规定
 也称为对象的多态性：父类的引用指向子类的对象。 eg：
 class Person{ } class Man extends Person{ } class Women extends Person{ } //对象的多态性，父类的引用指向子类的对象 Person p1 = new Man(); Person p2 = new Women(); 多态性的使用：虚拟方法调用 有了多态性以后，在编译的时候，只能调用父类的声明的方法，而运行时，实际执行的是子类重写父类的方法
 即：编译看左边，运行看右边
- 多态性的使用前提：①有类的继承；②有方法的重写">
+ 多态性的使用前提：①有类的继承；②有方法的重写"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/5.jpg' />
     </head>
     <body class="">
     <script>
@@ -186,8 +187,16 @@ class Person{ } class Man extends Person{ } class Women extends Person{ } //对�
         </a>
     </div>
 
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/javase-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                
+                    <img src="/5.jpg" loading="lazy" alt="Featured image of post JavaSE 面向对象" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -827,7 +836,7 @@ public String toString(){
         
             2020 - 
         
-        2021 SheepHe&#39;s Blog
+        2022 SheepHe&#39;s Blog
     </section>
     
     <section class="powerby">
