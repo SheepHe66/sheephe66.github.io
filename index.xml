@@ -436,11 +436,11 @@ where 子句。需要注意的是，第一个&lt;span class=&#34;nt&#34;&gt;&amp
 &lt;p&gt;在Idea中，有时将项目中的 Module remove 之后，如何将蓝色小方块恢复，使其重新变成Module&lt;/p&gt;
 &lt;p&gt;或者将别人的项目导入时，也需要通过这种方法，将其从目录的性转换成Module 来运行&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;右击项目根目录，Open Module Settings&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gitee.com/sheephe/images/raw/master/img/202204102025848.png&#34; alt=&#34;image-20220117172733564&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204102039356.png&#34; alt=&#34;image-20220117172733564&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;点击Modules，import Module&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gitee.com/sheephe/images/raw/master/img/202204102025650.png&#34; alt=&#34;image-20220117172807923&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204102040847.png&#34; alt=&#34;image-20220117172807923&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;选择Maven&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gitee.com/sheephe/images/raw/master/img/202204102025015.png&#34; alt=&#34;image-20220117172928181&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204102040220.png&#34; alt=&#34;image-20220117172928181&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;然后点击finish，Apply即可&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
