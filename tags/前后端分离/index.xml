@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前后端分离 on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/</link>
+    <description>Recent content in 前后端分离 on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2022 20:22:30 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot&#43;Vue项目笔记</title>
+      <link>https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 10 Apr 2022 20:22:30 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
+      <description>Spring Boot + Vue 前后端分离项目 前端   安装 node.js , Vue CLI
+  通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目
+  然后用 IntelliJ IDEA 或 VS Code 等工具进行开发
+（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6+）
+  使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的
+localhost:8080 对应的就是 App.vue 主页面，主页面不变，每次更新页
+面其实是通过路由功能 替换主页面当中的 小页面
+项目中将 vue2 升级为 vue3 创建Vue项目时可以选择vue的版本，即 vue2或者 vue3
+如果忘记选择，项目默认会是vue2
+此时只需要在项目目录下，输入：vue add vue-next
+将vue2升级为vue3
+使用命令行创建 vue3 项目 vue create 项目名
+选择手动配置
+选择 vuex 和 Router，去掉Linter （按空格键选择或去除）</description>
+    </item>
+    
+  </channel>
+</rss>

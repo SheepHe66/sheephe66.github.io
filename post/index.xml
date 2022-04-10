@@ -6,7 +6,50 @@
     <description>Recent content in Posts on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Apr 2022 20:35:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 20:22:30 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot&#43;Vue项目笔记</title>
+      <link>https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 10 Apr 2022 20:22:30 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
+      <description>Spring Boot + Vue 前后端分离项目 前端   安装 node.js , Vue CLI
+  通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目
+  然后用 IntelliJ IDEA 或 VS Code 等工具进行开发
+（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6+）
+  使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的
+localhost:8080 对应的就是 App.vue 主页面，主页面不变，每次更新页
+面其实是通过路由功能 替换主页面当中的 小页面
+项目中将 vue2 升级为 vue3 创建Vue项目时可以选择vue的版本，即 vue2或者 vue3
+如果忘记选择，项目默认会是vue2
+此时只需要在项目目录下，输入：vue add vue-next
+将vue2升级为vue3
+使用命令行创建 vue3 项目 vue create 项目名
+选择手动配置
+选择 vuex 和 Router，去掉Linter （按空格键选择或去除）</description>
+    </item>
+    
+    <item>
+      <title>博客更新文章步骤</title>
+      <link>https://sheephe66.github.io/p/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E6%96%87%E7%AB%A0%E6%AD%A5%E9%AA%A4/</link>
+      <pubDate>Sun, 10 Apr 2022 20:17:16 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E6%96%87%E7%AB%A0%E6%AD%A5%E9%AA%A4/</guid>
+      <description>博客更新文章  博客根目录下，hugo new post/文章名.md 使用Typora等编辑器打开（根目录-content-post），写入博客文章内容 本地启动博客：博客根目录下输入：hugo server -t hugo-theme-stack &amp;ndash;buildDrafts 复制http://localhost:1313到浏览器，查看是否更新文章  将更新的文章push到远端：
+  博客根目录下输入：hugo &amp;ndash;theme=hugo-theme-stack &amp;ndash;baseUrl=&amp;ldquo;https://sheephe66.github.io/&amp;quot; &amp;ndash;buildDrafts
+（此时public文件夹中P文件夹中更新了博客文章(一个文件夹)，以 及其他的一些东西，所以下一步要拷贝整个文件夹）
+  将更新的内容拷贝到github仓库:
+​	》此处特别注意：应该将更新之后的整个public文件夹都拷贝到远程仓库下的sheephe66.github.io文件夹里，会有重复文件，点击替换即可
+  接着将Github仓库push到远端：
+​	》在sheephe66.github.io目录下进入git bash：
+ git branch -a 查看分支（也可以不看） git add . git commit -m &amp;ldquo;提交名称&amp;rdquo; git push（push仓库，要登录github）    注意：上传每篇文章的封面图片时，需要先将要展示的图片拷贝到 D:\AA hugo-Blog\MyBlogThird\SheepHe\static 目录下，然后在Markdown文件首部用：image: &amp;ldquo;/1.jpg&amp;rdquo; 显示图片，默认回去static目录下寻找图片。
+如果出现将仓库push到github后博客没有更新，可能是GitHub项目pages build and deployment没有启动成功，需要到GitHub仓库 Re-run all jobs
+修改博客主题：D:\Blog\MyBlogThird\SheepHe\themes\hugo-theme-stack\exampleSite，修改此目录下的 config.yaml文件
+目前博客主题地址：https://github.com/CaiJimmy/hugo-theme-stack.git
+Hugo theme Stack主题中文文档：https://docs.stack.jimmycai.com/v/zh-cn/
+github+Picgo图床如果不能上传图片了，可以尝试重新生成token令牌</description>
+    </item>
+    
     <item>
       <title>导入Module</title>
       <link>https://sheephe66.github.io/p/%E5%AF%BC%E5%85%A5module/</link>

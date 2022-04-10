@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Spring Boot &#43; Vue 前后端分离项目 前端   安装 node.js , Vue CLI
+  通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目
+  然后用 IntelliJ IDEA 或 VS Code 等工具进行开发
+（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6&#43;）
+  使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的
+localhost:8080 对应的就是 App.vue 主页面，主页面不变，每次更新页
+面其实是通过路由功能 替换主页面当中的 小页面
+项目中将 vue2 升级为 vue3 创建Vue项目时可以选择vue的版本，即 vue2或者 vue3
+如果忘记选择，项目默认会是vue2
+此时只需要在项目目录下，输入：vue add vue-next
+将vue2升级为vue3
+使用命令行创建 vue3 项目 vue create 项目名
+选择手动配置
+选择 vuex 和 Router，去掉Linter （按空格键选择或去除）'><title>SpringBoot&#43;Vue项目笔记</title>
+
+<link rel='canonical' href='https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='SpringBoot&#43;Vue项目笔记'>
+<meta property='og:description' content='Spring Boot &#43; Vue 前后端分离项目 前端   安装 node.js , Vue CLI
+  通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目
+  然后用 IntelliJ IDEA 或 VS Code 等工具进行开发
+（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6&#43;）
+  使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的
+localhost:8080 对应的就是 App.vue 主页面，主页面不变，每次更新页
+面其实是通过路由功能 替换主页面当中的 小页面
+项目中将 vue2 升级为 vue3 创建Vue项目时可以选择vue的版本，即 vue2或者 vue3
+如果忘记选择，项目默认会是vue2
+此时只需要在项目目录下，输入：vue add vue-next
+将vue2升级为vue3
+使用命令行创建 vue3 项目 vue create 项目名
+选择手动配置
+选择 vuex 和 Router，去掉Linter （按空格键选择或去除）'>
+<meta property='og:url' content='https://sheephe66.github.io/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='SheepHe&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='SpringBoot' /><meta property='article:tag' content='Vue' /><meta property='article:tag' content='前后端分离' /><meta property='article:published_time' content='2022-04-10T20:22:30&#43;08:00'/><meta property='article:modified_time' content='2022-04-10T20:22:30&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/9.jpg' />
+<meta name="twitter:title" content="SpringBoot&#43;Vue项目笔记">
+<meta name="twitter:description" content="Spring Boot &#43; Vue 前后端分离项目 前端   安装 node.js , Vue CLI
+  通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目
+  然后用 IntelliJ IDEA 或 VS Code 等工具进行开发
+（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6&#43;）
+  使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的
+localhost:8080 对应的就是 App.vue 主页面，主页面不变，每次更新页
+面其实是通过路由功能 替换主页面当中的 小页面
+项目中将 vue2 升级为 vue3 创建Vue项目时可以选择vue的版本，即 vue2或者 vue3
+如果忘记选择，项目默认会是vue2
+此时只需要在项目目录下，输入：vue add vue-next
+将vue2升级为vue3
+使用命令行创建 vue3 项目 vue create 项目名
+选择手动配置
+选择 vuex 和 Router，去掉Linter （按空格键选择或去除）"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/9.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/1_hufc62854409b45f5799a497ed33101f9b_36924_300x0_resize_q75_box.jpg" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://sheephe66.github.io/">SheepHe&#39;s Blog</a></h1>
+        <h2 class="site-description">欢迎来到SheepHe的个人小站！</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/sheephe66'>
+                
+                    <?xml version="1.0" ?><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://sheephe66.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">
+                
+                    <img src="/9.jpg" loading="lazy" alt="Featured image of post SpringBoot&#43;Vue项目笔记" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/springboot-vue%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">SpringBoot&#43;Vue项目笔记</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 10, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="spring-boot--vue-前后端分离项目">Spring Boot + Vue 前后端分离项目</h2>
+<h3 id="前端">前端</h3>
+<ul>
+<li>
+<p><strong>安装 node.js , Vue CLI</strong></p>
+</li>
+<li>
+<p><strong>通过 vue ui 命令启动 Vue CLI ， 在可视化界面创建前台项目</strong></p>
+</li>
+<li>
+<p><strong>然后用 IntelliJ IDEA 或 VS Code 等工具进行开发</strong></p>
+<p>（使用 IDEA 开发需要安装Vue.js 插件，并将javaScript版本改为ECMA Script 6+）</p>
+</li>
+</ul>
+<p>使用 IDEA 导入创建好的前端项目，项目是单一页面和路由跳转实现的</p>
+<p><strong>localhost:8080  对应的就是 App.vue 主页面，主页面不变，每次更新页</strong></p>
+<p><strong>面其实是通过路由功能 替换主页面当中的 小页面</strong></p>
+<h4 id="项目中将-vue2-升级为-vue3">项目中将 vue2 升级为 vue3</h4>
+<p>创建Vue项目时可以选择vue的版本，即 vue2或者 vue3</p>
+<p>如果忘记选择，项目默认会是vue2</p>
+<p>此时只需要在项目目录下，输入：<strong>vue add vue-next</strong></p>
+<p>将vue2升级为vue3</p>
+<h4 id="使用命令行创建-vue3-项目">使用命令行创建 vue3 项目</h4>
+<p>vue create 项目名</p>
+<p>选择手动配置</p>
+<p>选择 vuex 和 Router，去掉Linter （<strong>按空格键选择或去除</strong>）</p>
+<p>第一行选择vue的版本 （2.x 或 3.x）：vue2使用Element UI，vue3使用Element Plus</p>
+<h4 id="解决安装element-plus报错">解决安装element-plus报错</h4>
+<p>vue3 项目使用官网的  npm install element-plus &ndash;save 命令</p>
+<p>安装element-plus插件，结果会报错，导致项目无法启动</p>
+<p><strong>解决方案：</strong></p>
+<p>项目根目录下：</p>
+<p><strong>npm uninstall element-plus</strong>  （删除原来安装的 element-plus）</p>
+<p><strong>vue add element-plus</strong></p>
+<p>main.js文件中：</p>
+<p><strong>删除 原来的引入代码</strong></p>
+<pre><code>import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+</code></pre><p><strong>使用自动添加的引入代码即可</strong></p>
+<h4 id="解决使用element-plus-下拉菜单时向下箭头图标不显示-的问题">解决使用element-plus 下拉菜单时，向下箭头图标不显示 的问题</h4>
+<p>解决方法：</p>
+<p>需要在该显示页面引入ArrowDown：</p>
+<p><strong>import { ArrowDown } from &lsquo;@element-plus/icons-vue&rsquo;</strong></p>
+<p>并在该页面中注册component:</p>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml">export default {
+  name: &#34;Header&#34;,
+  components:{
+    ArrowDown
+  }
+};
+</code></pre></div><p>最后提示需要安装 icons-vue：</p>
+<p><strong>npm install &ndash;save @element-plus/icons-vue</strong></p>
+<p><strong>同理，遇到element-plus中的图标不显示时，同样这样解决！</strong></p>
+<h4 id="安装axios实现前后端请求交互">安装axios实现前后端请求交互</h4>
+<p><strong>vue目录下安装axios：</strong></p>
+<pre><code>npm i axios -S
+</code></pre><p>src下新建utils目录，新建request.js文件,将以下代码添加进去</p>
+<p><strong>request.js</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+
+<span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;/api&#39;</span><span class="p">,</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span>
+<span class="p">})</span>
+
+<span class="c1">// request 拦截器
+</span><span class="c1">// 可以自请求发送前对请求做一些处理
+</span><span class="c1">// 比如统一加token，对请求参数统一加密
+</span><span class="c1"></span><span class="nx">request</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/json;charset=utf-8&#39;</span><span class="p">;</span>
+
+    <span class="c1">// config.headers[&#39;token&#39;] = user.token;  // 设置请求头
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">config</span>
+<span class="p">},</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="c1">// response 拦截器
+</span><span class="c1">// 可以在接口响应后统一处理结果
+</span><span class="c1"></span><span class="nx">request</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+        <span class="c1">// 如果是返回的文件
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">===</span> <span class="s1">&#39;blob&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">res</span>
+        <span class="p">}</span>
+        <span class="c1">// 兼容服务端返回的字符串数据
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">res</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">res</span> <span class="o">=</span> <span class="nx">res</span> <span class="o">?</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="o">:</span> <span class="nx">res</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;err&#39;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">)</span> <span class="c1">// for debug
+</span><span class="c1"></span>        <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">request</span>
+
+</code></pre></div><p><strong>main.js引入（这里不能写错,否则前端页面空白）</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">request</span><span class="o">=</span><span class="nx">request</span>
+</code></pre></div><p>然后会自动导包</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">request</span> <span class="nx">from</span> <span class="s2">&#34;@/utils/request&#34;</span><span class="p">;</span>
+</code></pre></div><h4 id="深拷贝解决编辑未确认就改变">深拷贝(解决编辑未确认就改变)</h4>
+<p>解决 ：Vue 编辑按钮打开弹窗，输入信息后没点确定按钮就已经把数据更改了（此时表格的当前行数据改变了，但没有提交到数据库中）</p>
+<p>我们需要的是：点击确定按钮 , 表格才修改</p>
+<p><strong>修改编辑函数 handleEdit ()中 表单数据 form的获取</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">row</span><span class="p">))</span>
+</code></pre></div><h4 id="删除按钮加弹窗">删除按钮加弹窗</h4>
+<div class="highlight"><pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">el-table-column</span> <span class="na">label</span><span class="o">=</span><span class="s">&#34;操作&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">template</span> <span class="na">slot</span><span class="nt">-scope</span><span class="err">=&#34;</span><span class="na">scope</span><span class="err">&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!--</span> <span class="nx">scope</span><span class="o">:</span><span class="nx">操作当前行的数据</span> <span class="o">--&gt;</span>
+              <span class="p">&lt;</span><span class="nt">el-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;success&#34;</span> <span class="nt">@click</span><span class="s">=&#34;handleEdit(scope.row)&#34;</span><span class="p">&gt;</span><span class="na">编辑</span> <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;el-icon-edit&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span><span class="o">&lt;</span><span class="err">/el-button&gt;</span>
+              <span class="p">&lt;</span><span class="nt">el-popconfirm</span>
+                  <span class="na">style</span><span class="o">=</span><span class="s">&#34;margin-left: 5px&#34;</span>
+                  <span class="na">confirm</span><span class="nt">-button-text</span><span class="err">=&#39;</span><span class="na">确定</span><span class="err">&#39;</span>
+                  <span class="na">cancel</span><span class="nt">-button-text</span><span class="err">=&#39;</span><span class="na">我在想想</span><span class="err">&#39;</span>
+                  <span class="na">icon</span><span class="o">=</span><span class="s">&#34;el-icon-info&#34;</span>
+                  <span class="na">icon</span><span class="nt">-color</span><span class="err">=&#34;</span><span class="na">red</span><span class="err">&#34;</span>
+                  <span class="na">title</span><span class="o">=</span><span class="s">&#34;确定删除吗？&#34;</span>
+                  <span class="nt">@confirm</span><span class="s">=&#34;del(scope.row.id)&#34;</span>
+              <span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">el-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;danger&#34;</span> <span class="na">slot</span><span class="o">=</span><span class="s">&#34;reference&#34;</span><span class="p">&gt;</span><span class="nx">删除</span> <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;el-icon-remove-outline&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span><span class="o">&lt;</span><span class="err">/el-button&gt;</span>
+              <span class="o">&lt;</span><span class="err">/el-popconfirm&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+            <span class="o">&lt;</span><span class="err">/el-table-column&gt;</span>
+</code></pre></div><p>具体删除的点击事件绑定的是 <strong>弹出来的确定按钮</strong></p>
+<p>删除事件名：<strong>@confirm=&ldquo;del(scope.row.id)&rdquo;  ，不能写 delete ，会报错</strong> ，应该是element ui的方法重名</p>
+<h4 id="批量删除">批量删除</h4>
+<p>后台用PostMapping</p>
+<p>前端用Post请求,因为参数是数组，delete请求不支持</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">ids</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">multipleSelection</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>  <span class="c1">//前端map函数将对象数组 转成 id数组
+</span></code></pre></div><h4 id="vue--div">Vue  div</h4>
+<p><strong>Vue 的根只能是一个div，不能存在多个div 在同一级，所以要把同级并行的多个div再放入一个根div中</strong></p>
+<h4 id="配置子路由">配置子路由</h4>
+<p><img src="/C:%5cUsers%5chyy000%5cDesktop%5c%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9f%e9%a1%b9%e7%9b%ae%5cSnipaste_2022-03-14_19-20-51.png" alt=""  /></p>
+<h4 id="前端配置路由">前端配置路由</h4>
+<p><strong>router\index.js文件中一定要引入 store,否则前端页面白屏</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span>
+<span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s2">&#34;@/store&#34;</span> <span class="c1">//注意别忘了
+</span></code></pre></div><h4 id="request请求">request请求</h4>
+<p>前端请求 this.request , 默认是get接口，其他接口请求需要加上 .post ,  .delete 等</p>
+<p>需要传递参数,如登陆注册,一般用post请求</p>
+<h4 id="前端存储用户信息">前端存储用户信息</h4>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//用户登录请求后,前端存储用户信息到浏览器
+</span><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">,</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">))</span> 
+</code></pre></div><h4 id="用户头像和昵称">用户头像和昵称</h4>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;display: inline-block&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;../assets/am4qu-utkn4.png&#34;</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&#34;width: 30px; border-radius: 50%; position: relative; top: 10px; right: 5px&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">管理员</span><span class="o">&lt;</span><span class="sr">/span&gt;&lt;i class=&#34;el-icon-arrow-down&#34; style=&#34;margin-left: 5px&#34;&gt;&lt;/i</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div><h3 id="后端">后端</h3>
+<h4 id="yml配置文件">yml配置文件</h4>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9090</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">mvc</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">pathmatch</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">matching-strategy</span><span class="p">:</span><span class="w"> </span><span class="l">ant_path_matcher </span><span class="w"> </span><span class="c">#解决SpringBoot2.6.4集成Swagger3.0.0报错(不用Swagger可忽略)</span><span class="w">
+</span><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l">com.mysql.cj.jdbc.Driver</span><span class="w">
+</span><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">jdbc:mysql://localhost:3306/backsystem?useUnicode=true&amp;characterEncoding=utf-8</span><span class="w">
+</span><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">root</span><span class="w">
+</span><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">hyy20010416</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">mybatis</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">mapper-locations</span><span class="p">:</span><span class="w"> </span><span class="l">classpath:mapper/*.xml </span><span class="w"> </span><span class="c">#扫描所有mybatis的xml文件</span><span class="w">
+</span><span class="w"></span><span class="c">#mybatis日志,可以在控制台打印具体执行的sql语句</span><span class="w">
+</span><span class="w"></span><span class="c">#  configuration:</span><span class="w">
+</span><span class="w"></span><span class="c">#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">#使用了mybatis-plus的日志配置</span><span class="w">
+</span><span class="w"></span><span class="nt">mybatis-plus</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">configuration</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">log-impl</span><span class="p">:</span><span class="w"> </span><span class="l">org.apache.ibatis.logging.stdout.StdOutImpl</span><span class="w">
+</span><span class="w">
+</span></code></pre></div><h4 id="mybatis的xml文件通用格式">mybatis的xml文件通用格式</h4>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+</span><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;Mapper接口的全限定名称&#34;</span><span class="nt">&gt;</span>
+    这里写sql
+<span class="nt">&lt;/mapper&gt;</span>
+</code></pre></div><p><strong>mybatis的sql语句 要么在Mapper接口中用mybatis的注解写，要么在Mapper.xml</strong></p>
+<p><strong>文件中通过标签的形式来写</strong></p>
+<h4 id="mybatis动态sql复习">mybatis动态sql复习</h4>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;if&gt;</span> 
+对于该标签的执行，当 test 的值为 true 时，会将其包含的 SQL 片断拼接到其所在的 SQL 语句中。
+语法：<span class="nt">&lt;if</span> <span class="na">test=</span><span class="s">&#34;条件&#34;</span><span class="nt">&gt;</span> sql 语句的部分 <span class="nt">&lt;/if&gt;</span>
+     
+    
+<span class="nt">&lt;where&gt;</span>
+<span class="nt">&lt;if/&gt;</span>标签的中存在一个比较麻烦的地方：需要在 where 后手工添加 1=1 的子句。因为，若 where 后
+的所有<span class="nt">&lt;if/&gt;</span>条件均为 false，而 where 后若又没有 1=1 子句，则 SQL 中就会只剩下一个空的 where，SQL
+出错。所以，在 where 后，需要添加永为真子句 1=1，以防止这种情况的发生。但当数据量很大时，会
+严重影响查询效率
+使用<span class="nt">&lt;where/&gt;</span>标签，在有查询条件时，可以自动添加上 where 子句；没有查询条件时，不会添加
+where 子句。需要注意的是，第一个<span class="nt">&lt;if/&gt;</span>标签中的 SQL 片断，可以不包含 and。不过，写上 and 也不错，
+系统会将多出的 and 去掉。但其它<span class="nt">&lt;if/&gt;</span>中 SQL 片断的 and，必须要求写上。否则 SQL 语句将拼接出错
+
+    (<span class="nt">&lt;where&gt;</span>标签解决直接用where需要添加1=1影响效率的问题)
+
+语法：<span class="nt">&lt;where&gt;</span> 其他动态 sql <span class="nt">&lt;/where&gt;</span>
+  
+    
+<span class="nt">&lt;foreach&gt;</span>
+<span class="nt">&lt;foreach/&gt;</span>标签用于实现对于数组与集合的遍历。对其使用，需要注意：collection 表示要遍历的集合类型, list ，array 等。open、close、separator 为对遍历内容的 SQL 拼接。
+
+语法：
+<span class="nt">&lt;foreach</span> <span class="na">collection=</span><span class="s">&#34;集合类型&#34;</span> <span class="na">open=</span><span class="s">&#34;开始的字符&#34;</span> <span class="na">close=</span><span class="s">&#34;结束的字符&#34;</span>
+<span class="na">item=</span><span class="s">&#34;集合中的成员&#34;</span> <span class="na">separator=</span><span class="s">&#34;集合成员之间的分隔符&#34;</span><span class="nt">&gt;</span>
+#{item 的值}
+<span class="nt">&lt;/foreach&gt;</span>
+    
+</code></pre></div><h4 id="spring-boot配置跨域类">Spring Boot配置跨域类</h4>
+<p>前端遇到跨域访问后台的问题，只需在<strong>Spring Boot项目中添加如下配置文件</strong>即可</p>
+<p>(只是其中一种方法，还可以使用过滤器和@CrossOrigin注解)</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.config.annotation.CorsRegistry</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.servlet.config.annotation.WebMvcConfigurer</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CorsConfig</span> <span class="kd">implements</span> <span class="n">WebMvcConfigurer</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCorsMappings</span><span class="o">(</span><span class="n">CorsRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">addMapping</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">allowedOrigins</span><span class="o">(</span><span class="s">&#34;*&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">allowedOriginPatterns</span><span class="o">(</span><span class="s">&#34;*&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">allowedHeaders</span><span class="o">(</span><span class="s">&#34;*&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">allowedMethods</span><span class="o">(</span><span class="s">&#34;GET&#34;</span><span class="o">,</span><span class="s">&#34;POST&#34;</span><span class="o">,</span><span class="s">&#34;DELETE&#34;</span><span class="o">,</span><span class="s">&#34;PUT&#34;</span><span class="o">,</span><span class="s">&#34;OPTIONS&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">maxAge</span><span class="o">(</span><span class="n">3600</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h4 id="忽略某个字段不展示给前端jsonignore">忽略某个字段，不展示给前端（@JsonIgnore）</h4>
+<p>前端的请求数据中，若想要忽略某个字段，不展示给前端，比如前端查询用户的全部数据字段，但由于密码较为隐私，不宜展示，<strong>可以在Entity的javabean 中的密码属性上面使用 @JsonIgnore注解</strong></p>
+<h4 id="mysql模糊查询">mysql模糊查询</h4>
+<p><strong>concat字符串拼接</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">where</span> <span class="n">username</span> <span class="k">like</span> <span class="n">concat</span> <span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="o">#</span><span class="err">{</span><span class="n">username</span><span class="err">}</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</code></pre></div><h4 id="mybatis-plus依赖">mybatis-plus依赖</h4>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div><h4 id="mybatisplusconfigjava">MybatisPlusConfig.java</h4>
+<p>使用mybatis-plus分页插件的配置类</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.annotation.DbType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.mybatis.spring.annotation.MapperScan</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> *@Description  使用mybatis-plus分页插件的配置
+</span><span class="cm"> *@Author SheepHe
+</span><span class="cm"> *@Date 2022/3/10 18:57
+</span><span class="cm">**/</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@MapperScan</span><span class="o">(</span><span class="s">&#34;com.sheephe.springboot.mapper&#34;</span><span class="o">)</span> <span class="c1">////扫描所有的mapper接口(不要放在启动类上,统一放在配置类上)
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MybatisPlusConfig</span> <span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">     * 最新版
+</span><span class="cm">     */</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">MybatisPlusInterceptor</span> <span class="nf">mybatisPlusInterceptor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">MybatisPlusInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MybatisPlusInterceptor</span><span class="o">();</span>
+        <span class="n">interceptor</span><span class="o">.</span><span class="na">addInnerInterceptor</span><span class="o">(</span><span class="k">new</span> <span class="n">PaginationInnerInterceptor</span><span class="o">(</span><span class="n">DbType</span><span class="o">.</span><span class="na">MYSQL</span><span class="o">));</span>
+        <span class="k">return</span> <span class="n">interceptor</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><h4 id="mapper接口继承basemapper">Mapper接口继承BaseMapper&lt;&gt;</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</code></pre></div><h4 id="使用mybatis-plus通用的service">使用mybatis-plus通用的service</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Service接口</span> <span class="n">继承</span> <span class="n">IService</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="n">接口</span><span class="err">，</span><span class="n">然后</span> <span class="n">Service接口的实现类</span> <span class="n">继承</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">操作实体的Mapper接口</span><span class="err">，</span><span class="n">具体实现类</span><span class="o">&gt;</span><span class="err">，</span><span class="n">最后在ServiceImpl实现类添加</span><span class="nd">@Service注解将该实现类作为Spring容器下的Bean</span>
+</code></pre></div><h4 id="tablenamevalue--sys_user">@TableName(value = &ldquo;sys_user&rdquo;)</h4>
+<p><strong>指定数据库表的名称</strong></p>
+<h4 id="tablefieldvalue--avatar_url">@TableField(value = &ldquo;avatar_url&rdquo;)</h4>
+<p>private String avatar;</p>
+<p><strong>指定数据库字段的名称</strong></p>
+<p><strong>（如果数据库字段是下划线命名，如avatar_url, java属性名是驼峰命名，字符串是一致的，则框架会自动将下划线转驼峰，不用加该注解）</strong></p>
+<h4 id="spring-boot集成swagger-ui">Spring Boot集成Swagger-UI</h4>
+<p>访问地址：http://localhost:9090/swagger-ui/index.html</p>
+<p>使用Swagger 3.0.0</p>
+<p>pom.xml</p>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"> <span class="nt">&lt;dependency&gt;</span>
+     <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+     <span class="nt">&lt;artifactId&gt;</span>springfox-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+     <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div><p>SwaggerConfig.java</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.ApiInfoBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.PathSelectors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.RequestHandlerSelectors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.oas.annotations.EnableOpenApi</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.ApiInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.Contact</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.DocumentationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spring.web.plugins.Docket</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableOpenApi</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwaggerConfig</span> <span class="o">{</span>
+
+
+    <span class="cm">/**
+</span><span class="cm">     * 创建API应用
+</span><span class="cm">     * apiInfo() 增加API相关信息
+</span><span class="cm">     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，
+</span><span class="cm">     * 本例采用指定扫描的包路径来定义指定要建立API的目录。
+</span><span class="cm">     *
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Docket</span> <span class="nf">restApi</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Docket</span><span class="o">(</span><span class="n">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">groupName</span><span class="o">(</span><span class="s">&#34;标准接口&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">apiInfo</span><span class="o">(</span><span class="n">apiInfo</span><span class="o">(</span><span class="s">&#34;Spring Boot中使用Swagger2构建RESTful APIs&#34;</span><span class="o">,</span> <span class="s">&#34;1.0&#34;</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">forCodeGeneration</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">select</span><span class="o">()</span>
+           		<span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="n">RequestHandlerSelectors</span><span class="o">.</span><span class="na">basePackage</span><span class="o">(</span><span class="s">&#34;com.sheephe.springboot.controller&#34;</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">paths</span><span class="o">(</span><span class="n">PathSelectors</span><span class="o">.</span><span class="na">any</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 创建该API的基本信息（这些基本信息会展现在文档页面中）
+</span><span class="cm">     * 访问地址：http://ip:port/swagger-ui.html
+</span><span class="cm">     *
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">ApiInfo</span> <span class="nf">apiInfo</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">,</span> <span class="n">String</span> <span class="n">version</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ApiInfoBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">title</span><span class="o">(</span><span class="n">title</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">&#34;更多请关注: https://blog.csdn.net/xqnode&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">termsOfServiceUrl</span><span class="o">(</span><span class="s">&#34;https://blog.csdn.net/xqnode&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">contact</span><span class="o">(</span><span class="k">new</span> <span class="n">Contact</span><span class="o">(</span><span class="s">&#34;xqnode&#34;</span><span class="o">,</span> <span class="s">&#34;https://blog.csdn.net/xqnode&#34;</span><span class="o">,</span> <span class="s">&#34;xiaqingweb@163.com&#34;</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">version</span><span class="o">(</span><span class="n">version</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+<span class="o">}</span>
+</code></pre></div><h5 id="spring-boot-264-集成-swagger-300-报错">Spring Boot 2.6.4 集成 Swagger 3.0.0 报错</h5>
+<p>这两个版本的集成，会导致项目直接启动不起来。</p>
+<p>Spring Boot2.6更改了请求路径与与SpringMVC路径匹配规则，已经不是原来的<code>AntPathMatcher</code>了，改为了<code>PathPatternParser</code>。可能swagger3.0的一些地址还没作出相应的更新所以出错了。</p>
+<p><strong>只需在yml配置文件中添加如下配置</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">mvc</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">pathmatch</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">matching-strategy</span><span class="p">:</span><span class="w"> </span><span class="l">ant_path_matcher</span><span class="w">
+</span></code></pre></div><h4 id="mybatis-plus-代码生成器">mybatis-plus 代码生成器</h4>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-generator<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div><h4 id="spring-boot自定义异常">Spring Boot自定义异常</h4>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/springboot/">SpringBoot</a>
+        
+            <a href="/tags/vue/">Vue</a>
+        
+            <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">前后端分离</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>承认自己的无知 , 乃是开启智慧的大门!</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 SheepHe&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
