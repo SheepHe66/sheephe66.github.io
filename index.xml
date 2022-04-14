@@ -6,7 +6,319 @@
         <description>Recent content on SheepHe&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 10 Apr 2022 21:54:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 Apr 2022 18:39:56 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>服务器部署项目</title>
+        <link>https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</link>
+        <pubDate>Thu, 14 Apr 2022 18:39:56 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/14.jpg" alt="Featured image of post 服务器部署项目" /&gt;&lt;h3 id=&#34;服务器部署项目&#34;&gt;服务器部署项目&lt;/h3&gt;
+&lt;h4 id=&#34;常见linux命令&#34;&gt;常见Linux命令&lt;/h4&gt;
+&lt;p&gt;查看内存：          free -h&lt;/p&gt;
+&lt;p&gt;查看存储空间：   df -h&lt;/p&gt;
+&lt;p&gt;查看当前运行的软件：     top&lt;/p&gt;
+&lt;p&gt;查看当前目录下的所有文件：  ls  (ll: 将所有文件按列表展示)&lt;/p&gt;
+&lt;p&gt;解压文件：  tar -zxvf  文件名&lt;/p&gt;
+&lt;p&gt;压缩文件：  tar -zcvf 文件名&lt;/p&gt;
+&lt;p&gt;修改文件名：  mv jdk1.8.0_321 jdk1.8&lt;/p&gt;
+&lt;p&gt;移动文件到另一个文件夹：  mv jdk1.8 /usr/local/&lt;/p&gt;
+&lt;p&gt;用vim编辑文件：vim /etc/profile&lt;/p&gt;
+&lt;p&gt;查看文件最后一屏： cat /etc/profile&lt;/p&gt;
+&lt;p&gt;ubantu查看版本及内核：uname -a&lt;/p&gt;
+&lt;p&gt;pwd:   查看当前目录&lt;/p&gt;
+&lt;p&gt;ps -ef ：查看进程  （搭配grep使用 【 grep ：强大的文本搜索命令】）&lt;/p&gt;
+&lt;p&gt;ps -ef | grep java: 查看Java进程号&lt;/p&gt;
+&lt;p&gt;kill -9 进程号：杀掉该进程&lt;/p&gt;
+&lt;p&gt;nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp; ：将Java项目放在后台启动&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim使用
+按 A ：进入编辑模式
+按 esc： 退出编辑模式
+输入：  :wq  保存
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;linux配置java环境变量&#34;&gt;Linux配置Java环境变量&lt;/h4&gt;
+&lt;p&gt;用vim编辑文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim /etc/profile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在文件最后添加如下配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export JAVA_HOME=/usr/local/jdk1.8
+export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/
+export PATH=$PATH:$JAVA_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;配置完环境变量后,需要使用 source /etc/profile  命令刷新，然后输入 java -version 才能看到java版本号&lt;/p&gt;
+&lt;h4 id=&#34;阿里云配置安全组&#34;&gt;阿里云配置安全组&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204101819612.png&#34; alt=&#34;image-20220402201240016&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;项目所需环境放在: home/package 目录下&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ubantu一键安装docker：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -sSL https://get.daocloud.io/docker | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动docker：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo usermod -aG docker $USER
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;设置root权限：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo usermod -aG docker $USER
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;开机自启docker：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable docker
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;docker启动mysql：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;修改权限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//进入mysql容器：
+docker exec -it ae9e09ebfc10 /bin/bash
+//mysql容器id：ae9e09ebfc10
+
+// 登录mysql：
+mysql -uroot -proot
+// 修改权限：
+ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;root&#39;;
+或者：ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;
+flush privileges;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;服务器springboot项目目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/home/server/springboot/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打包springboot项目：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//跳过测试
+mvn clean package -DskipTests
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;服务器启动springboot项目：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod 777 文件名 //文件授权
+java -jar 文件名
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;把springboot项目放在后台启动，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;前端启动使用 nginx 代理打包的dist目录实现前端页面的访问&lt;/p&gt;
+&lt;p&gt;查看springboot后台日志：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//springboot目录下
+cat nohup.out  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查看java进程：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ps -ef | grep java
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关闭进程&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kill -9 进程号
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装 anywhere前端静态资源服务器插件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install anywhere -g
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;vue dist nginx配置反向代理：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location / {
+            root /home/server/dist;
+            index index.html index.htm;
+            try_files $uri $uri/ /index.html;
+        }
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;nginx重启：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/nginx -s reload
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：前端文件上传和导出的 url都需要配置 &lt;strong&gt;serverIp&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;后台ip配置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;server&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8.142.136.215&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;9090&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文件上传、下载和导出都需要使用到服务器的公网IP&lt;/p&gt;
+&lt;p&gt;接口请求也需要使用公网IP&lt;/p&gt;
+&lt;p&gt;注意：User.vue中上传按钮必须这样写（用单引号拼接）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;el-upload :action=&amp;quot;&#39;http://&#39; + serverIp + &#39;:9090/user/import&#39;&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;修改hosts文件：（C:\Windows\System32\drivers\etc）&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;8.142.136.215 www.sheephe.com 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;将服务器IP映射到域名（只对本机有效&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;访问服务器端Swagger出现弹窗：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204101816031.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;两种可能：&lt;/p&gt;
+&lt;p&gt;1、在SwaggerConfig.java文件中加上 @EnableSwagger2注解&lt;/p&gt;
+&lt;p&gt;2、&lt;strong&gt;被拦截器拦截，在拦截器配置中放行静态文件:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;addInterceptors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InterceptorRegistry&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jwtInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addPathPatterns&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 拦截所有请求，通过判断token是否合法来决定是否需要登录
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;excludePathPatterns&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/user/login&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/user/register&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/export&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/import&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/file/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/swagger-resources/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/webjars/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/v2/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/swagger-ui.html/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/api&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/api-docs&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/api-docs/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;excludePathPatterns&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/*.html&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/*.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/*.css&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/**/*.woff&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;/**/*.ttf&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 放行静态文件
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;前端打包：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run build
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;打包成dist目录&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在dist目录下，输入： anywhere -p 8080  可以启动前端项目&lt;/p&gt;
+&lt;h4 id=&#34;服务器文件上传&#34;&gt;服务器文件上传&lt;/h4&gt;
+&lt;p&gt;如果数据库中已经有这个文件了，则不会上传，或直接获取它已有的url&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;后台上传文件接口，用serverIp拼接不生效，直接写死即可&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gitee.com/sheephe/images/raw/master/img/202204101859321.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>SpringBoot集成SwaggerUI</title>
+        <link>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</link>
+        <pubDate>Thu, 14 Apr 2022 18:39:38 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/13.jpg" alt="Featured image of post SpringBoot集成SwaggerUI" /&gt;&lt;h3 id=&#34;spring-boot-集成-swagger-ui&#34;&gt;Spring Boot 集成 Swagger UI&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;访问地址：http://localhost:9090/swagger-ui/index.html&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;集成版本swagger-300&#34;&gt;集成版本:Swagger 3.0.0&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;pom.xml&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt; &lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+     &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+     &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;springfox-boot-starter&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+     &lt;span class=&#34;nt&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.0.0&lt;span class=&#34;nt&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+ &lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Swagger配置类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;SwaggerConfig.java&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;org.springframework.context.annotation.Bean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.builders.ApiInfoBuilder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.builders.PathSelectors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.builders.RequestHandlerSelectors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.oas.annotations.EnableOpenApi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.service.ApiInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.service.Contact&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.spi.DocumentationType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;springfox.documentation.spring.web.plugins.Docket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nd&#34;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&#34;nd&#34;&gt;@EnableOpenApi&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SwaggerConfig&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+
+
+    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 创建API应用
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * apiInfo() 增加API相关信息
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 本例采用指定扫描的包路径来定义指定要建立API的目录。
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     *
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * @return
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;nd&#34;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Docket&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;restApi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Docket&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DocumentationType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;groupName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;标准接口&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apiInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apiInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Spring Boot中使用Swagger2构建RESTful APIs&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;1.0&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;useDefaultResponseMessages&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;forCodeGeneration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
+           		&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;apis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RequestHandlerSelectors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;basePackage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;com.sheephe.springboot.controller&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;paths&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PathSelectors&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;any&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 创建该API的基本信息（这些基本信息会展现在文档页面中）
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 访问地址：http://ip:port/swagger-ui.html
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     *
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * @return
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApiInfo&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;apiInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ApiInfoBuilder&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;更多请关注: https://blog.csdn.net/xqnode&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;termsOfServiceUrl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://blog.csdn.net/xqnode&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;contact&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Contact&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;xqnode&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://blog.csdn.net/xqnode&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;xiaqingweb@163.com&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;spring-boot-264-集成-swagger-300-报错&#34;&gt;Spring Boot 2.6.4 集成 Swagger 3.0.0 报错&lt;/h5&gt;
+&lt;p&gt;这两个版本的集成，会导致项目直接启动不起来。&lt;/p&gt;
+&lt;p&gt;Spring Boot2.6更改了请求路径与与SpringMVC路径匹配规则，已经不是原来的&lt;code&gt;AntPathMatcher&lt;/code&gt;了，改为了&lt;code&gt;PathPatternParser&lt;/code&gt;。可能swagger3.0的一些地址还没作出相应的更新所以出错了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;只需在yml配置文件中添加如下配置&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;spring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mvc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;pathmatch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;matching-strategy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ant_path_matcher&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>MybatisPlus使用</title>
+        <link>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Thu, 14 Apr 2022 18:39:09 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/12.jpg" alt="Featured image of post MybatisPlus使用" /&gt;&lt;h3 id=&#34;mybatismybatisplus应用&#34;&gt;MyBatis&amp;amp;MyBatisPlus应用&lt;/h3&gt;
+&lt;h4 id=&#34;mybatis配置&#34;&gt;MyBatis配置&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;mybatis&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mapper-locations&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;classpath:mapper/*.xml &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#扫描所有mybatis的xml文件&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#mybatis日志,可以在控制台打印具体执行的sql语句&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#  configuration:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatis-xml映射文件格式&#34;&gt;MyBatis xml映射文件格式&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;&amp;lt;!DOCTYPE mapper PUBLIC &amp;#34;-//mybatis.org//DTD Mapper 3.0//EN&amp;#34;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;        &amp;#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;#34;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;mapper&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;namespace=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Mapper接口的全限定名称&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+    这里写sql
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/mapper&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatis动态sql复习&#34;&gt;MyBatis动态sql复习&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;if&amp;gt;&lt;/span&gt; 
+对于该标签的执行，当 test 的值为 true 时，会将其包含的 SQL 片断拼接到其所在的 SQL 语句中。
+语法：&lt;span class=&#34;nt&#34;&gt;&amp;lt;if&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;test=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;条件&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt; sql 语句的部分 &lt;span class=&#34;nt&#34;&gt;&amp;lt;/if&amp;gt;&lt;/span&gt;
+     
+    
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;where&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;if/&amp;gt;&lt;/span&gt;标签的中存在一个比较麻烦的地方：需要在 where 后手工添加 1=1 的子句。因为，若 where 后
+的所有&lt;span class=&#34;nt&#34;&gt;&amp;lt;if/&amp;gt;&lt;/span&gt;条件均为 false，而 where 后若又没有 1=1 子句，则 SQL 中就会只剩下一个空的 where，SQL
+出错。所以，在 where 后，需要添加永为真子句 1=1，以防止这种情况的发生。但当数据量很大时，会
+严重影响查询效率
+使用&lt;span class=&#34;nt&#34;&gt;&amp;lt;where/&amp;gt;&lt;/span&gt;标签，在有查询条件时，可以自动添加上 where 子句；没有查询条件时，不会添加
+where 子句。需要注意的是，第一个&lt;span class=&#34;nt&#34;&gt;&amp;lt;if/&amp;gt;&lt;/span&gt;标签中的 SQL 片断，可以不包含 and。不过，写上 and 也不错，
+系统会将多出的 and 去掉。但其它&lt;span class=&#34;nt&#34;&gt;&amp;lt;if/&amp;gt;&lt;/span&gt;中 SQL 片断的 and，必须要求写上。否则 SQL 语句将拼接出错
+
+    (&lt;span class=&#34;nt&#34;&gt;&amp;lt;where&amp;gt;&lt;/span&gt;标签解决直接用where需要添加1=1影响效率的问题)
+
+语法：&lt;span class=&#34;nt&#34;&gt;&amp;lt;where&amp;gt;&lt;/span&gt; 其他动态 sql &lt;span class=&#34;nt&#34;&gt;&amp;lt;/where&amp;gt;&lt;/span&gt;
+  
+    
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;foreach&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;foreach/&amp;gt;&lt;/span&gt;标签用于实现对于数组与集合的遍历。对其使用，需要注意：collection 表示要遍历的集合类型, list ，array 等。open、close、separator 为对遍历内容的 SQL 拼接。
+
+语法：
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;foreach&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;collection=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;集合类型&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;open=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;开始的字符&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;close=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;结束的字符&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;item=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;集合中的成员&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;separator=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;集合成员之间的分隔符&amp;#34;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+#{item 的值}
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/foreach&amp;gt;&lt;/span&gt;
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatisplus依赖&#34;&gt;MyBatisPlus依赖&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.baomidou&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mybatis-plus-boot-starter&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.5.1&lt;span class=&#34;nt&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mapper接口继承basemapper&#34;&gt;Mapper接口继承BaseMapper&amp;lt;&amp;gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;UserMapper&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseMapper&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;使用mybatisplus通用的service&#34;&gt;使用MybatisPlus通用的service&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;Service接口&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;继承&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IService&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;接口&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;然后&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Service接口的实现类&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;继承&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ServiceImpl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;操作实体的Mapper接口&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;具体实现类&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;，&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;最后在ServiceImpl实现类添加&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Service注解将该实现类作为Spring容器下的Bean&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatisplus分页插件的配置类&#34;&gt;MybatisPlus分页插件的配置类&lt;/h4&gt;
+&lt;p&gt;MyBatisPlusConfig.java&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;com.baomidou.mybatisplus.annotation.DbType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;org.mybatis.spring.annotation.MapperScan&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;org.springframework.context.annotation.Bean&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; *@Description  使用mybatis-plus分页插件的配置
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; *@Author SheepHe
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; *@Date 2022/3/10 18:57
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;**/&lt;/span&gt;
+
+&lt;span class=&#34;nd&#34;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&#34;nd&#34;&gt;@MapperScan&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;com.sheephe.springboot.mapper&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;////扫描所有的mapper接口(不要放在启动类上,统一放在配置类上)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MybatisPlusConfig&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     * 最新版
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;     */&lt;/span&gt;
+    &lt;span class=&#34;nd&#34;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MybatisPlusInterceptor&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;mybatisPlusInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;MybatisPlusInterceptor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;interceptor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MybatisPlusInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;interceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addInnerInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PaginationInnerInterceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DbType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;MYSQL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;));&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;interceptor&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatisplus日志配置&#34;&gt;MyBatisPlus日志配置&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;c&#34;&gt;#使用了mybatis-plus的日志配置&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;mybatis-plus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;configuration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;log-impl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;org.apache.ibatis.logging.stdout.StdOutImpl&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;mybatisplus-代码生成器&#34;&gt;MybatisPlus 代码生成器&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.baomidou&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mybatis-plus-generator&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.5.2&lt;span class=&#34;nt&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>LeetCode 排序数组</title>
         <link>https://sheephe66.github.io/p/leetcode-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</link>
         <pubDate>Sun, 10 Apr 2022 21:54:08 +0800</pubDate>
@@ -395,7 +707,7 @@ import &#39;element-plus/dist/index.css&#39;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;vue--div&#34;&gt;Vue  div&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Vue 的根只能是一个div，不能存在多个div 在同一级，所以要把同级并行的多个div再放入一个根div中&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&#34;配置子路由&#34;&gt;配置子路由&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://sheephe66.github.io/C:%5cUsers%5chyy000%5cDesktop%5c%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9f%e9%a1%b9%e7%9b%ae%5cSnipaste_2022-03-14_19-20-51.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204141844165.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;h4 id=&#34;前端配置路由&#34;&gt;前端配置路由&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;router\index.js文件中一定要引入 store,否则前端页面白屏&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Vue&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;vue&amp;#39;&lt;/span&gt;

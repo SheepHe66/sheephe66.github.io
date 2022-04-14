@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='服务器部署项目 常见Linux命令 查看内存： free -h
+查看存储空间： df -h
+查看当前运行的软件： top
+查看当前目录下的所有文件： ls (ll: 将所有文件按列表展示)
+解压文件： tar -zxvf 文件名
+压缩文件： tar -zcvf 文件名
+修改文件名： mv jdk1.8.0_321 jdk1.8
+移动文件到另一个文件夹： mv jdk1.8 /usr/local/
+用vim编辑文件：vim /etc/profile
+查看文件最后一屏： cat /etc/profile
+ubantu查看版本及内核：uname -a
+pwd: 查看当前目录
+ps -ef ：查看进程 （搭配grep使用 【 grep ：强大的文本搜索命令】）
+ps -ef | grep java: 查看Java进程号
+kill -9 进程号：杀掉该进程
+nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp; ：将Java项目放在后台启动
+vim使用 按 A ：进入编辑模式 按 esc： 退出编辑模式 输入： :wq 保存 Linux配置Java环境变量 用vim编辑文件：'><title>服务器部署项目</title>
+
+<link rel='canonical' href='https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='服务器部署项目'>
+<meta property='og:description' content='服务器部署项目 常见Linux命令 查看内存： free -h
+查看存储空间： df -h
+查看当前运行的软件： top
+查看当前目录下的所有文件： ls (ll: 将所有文件按列表展示)
+解压文件： tar -zxvf 文件名
+压缩文件： tar -zcvf 文件名
+修改文件名： mv jdk1.8.0_321 jdk1.8
+移动文件到另一个文件夹： mv jdk1.8 /usr/local/
+用vim编辑文件：vim /etc/profile
+查看文件最后一屏： cat /etc/profile
+ubantu查看版本及内核：uname -a
+pwd: 查看当前目录
+ps -ef ：查看进程 （搭配grep使用 【 grep ：强大的文本搜索命令】）
+ps -ef | grep java: 查看Java进程号
+kill -9 进程号：杀掉该进程
+nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp; ：将Java项目放在后台启动
+vim使用 按 A ：进入编辑模式 按 esc： 退出编辑模式 输入： :wq 保存 Linux配置Java环境变量 用vim编辑文件：'>
+<meta property='og:url' content='https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/'>
+<meta property='og:site_name' content='SheepHe&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='服务器部署' /><meta property='article:published_time' content='2022-04-14T18:39:56&#43;08:00'/><meta property='article:modified_time' content='2022-04-14T18:39:56&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/14.jpg' />
+<meta name="twitter:title" content="服务器部署项目">
+<meta name="twitter:description" content="服务器部署项目 常见Linux命令 查看内存： free -h
+查看存储空间： df -h
+查看当前运行的软件： top
+查看当前目录下的所有文件： ls (ll: 将所有文件按列表展示)
+解压文件： tar -zxvf 文件名
+压缩文件： tar -zcvf 文件名
+修改文件名： mv jdk1.8.0_321 jdk1.8
+移动文件到另一个文件夹： mv jdk1.8 /usr/local/
+用vim编辑文件：vim /etc/profile
+查看文件最后一屏： cat /etc/profile
+ubantu查看版本及内核：uname -a
+pwd: 查看当前目录
+ps -ef ：查看进程 （搭配grep使用 【 grep ：强大的文本搜索命令】）
+ps -ef | grep java: 查看Java进程号
+kill -9 进程号：杀掉该进程
+nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp; ：将Java项目放在后台启动
+vim使用 按 A ：进入编辑模式 按 esc： 退出编辑模式 输入： :wq 保存 Linux配置Java环境变量 用vim编辑文件："><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/14.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/1_hufc62854409b45f5799a497ed33101f9b_36924_300x0_resize_q75_box.jpg" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://sheephe66.github.io/">SheepHe&#39;s Blog</a></h1>
+        <h2 class="site-description">欢迎来到SheepHe的个人小站！</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/sheephe66'>
+                
+                    <?xml version="1.0" ?><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://sheephe66.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/">
+                
+                    <img src="/14.jpg" loading="lazy" alt="Featured image of post 服务器部署项目" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/">服务器部署项目</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 14, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h3 id="服务器部署项目">服务器部署项目</h3>
+<h4 id="常见linux命令">常见Linux命令</h4>
+<p>查看内存：          free -h</p>
+<p>查看存储空间：   df -h</p>
+<p>查看当前运行的软件：     top</p>
+<p>查看当前目录下的所有文件：  ls  (ll: 将所有文件按列表展示)</p>
+<p>解压文件：  tar -zxvf  文件名</p>
+<p>压缩文件：  tar -zcvf 文件名</p>
+<p>修改文件名：  mv jdk1.8.0_321 jdk1.8</p>
+<p>移动文件到另一个文件夹：  mv jdk1.8 /usr/local/</p>
+<p>用vim编辑文件：vim /etc/profile</p>
+<p>查看文件最后一屏： cat /etc/profile</p>
+<p>ubantu查看版本及内核：uname -a</p>
+<p>pwd:   查看当前目录</p>
+<p>ps -ef ：查看进程  （搭配grep使用 【 grep ：强大的文本搜索命令】）</p>
+<p>ps -ef | grep java: 查看Java进程号</p>
+<p>kill -9 进程号：杀掉该进程</p>
+<p>nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp; ：将Java项目放在后台启动</p>
+<pre><code>vim使用
+按 A ：进入编辑模式
+按 esc： 退出编辑模式
+输入：  :wq  保存
+</code></pre><h4 id="linux配置java环境变量">Linux配置Java环境变量</h4>
+<p>用vim编辑文件：</p>
+<pre><code>vim /etc/profile
+</code></pre><p>在文件最后添加如下配置：</p>
+<pre><code>export JAVA_HOME=/usr/local/jdk1.8
+export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/
+export PATH=$PATH:$JAVA_HOME/bin
+</code></pre><p>配置完环境变量后,需要使用 source /etc/profile  命令刷新，然后输入 java -version 才能看到java版本号</p>
+<h4 id="阿里云配置安全组">阿里云配置安全组</h4>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204101819612.png" alt="image-20220402201240016"  /></p>
+<p><strong>项目所需环境放在: home/package 目录下</strong></p>
+<p>ubantu一键安装docker：</p>
+<pre><code>curl -sSL https://get.daocloud.io/docker | sh
+</code></pre><p>启动docker：</p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre><p>设置root权限：</p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre><p>开机自启docker：</p>
+<pre><code>systemctl enable docker
+</code></pre><p>docker启动mysql：</p>
+<pre><code>docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+</code></pre><p>修改权限</p>
+<pre><code>//进入mysql容器：
+docker exec -it ae9e09ebfc10 /bin/bash
+//mysql容器id：ae9e09ebfc10
+
+// 登录mysql：
+mysql -uroot -proot
+// 修改权限：
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+或者：ALTER USER 'root'@'%' IDENTIFIED BY '123456';
+flush privileges;
+</code></pre><p>服务器springboot项目目录：</p>
+<pre><code>/home/server/springboot/
+</code></pre><p>打包springboot项目：</p>
+<pre><code>//跳过测试
+mvn clean package -DskipTests
+</code></pre><p>服务器启动springboot项目：</p>
+<pre><code>chmod 777 文件名 //文件授权
+java -jar 文件名
+</code></pre><p>把springboot项目放在后台启动，</p>
+<pre><code>nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;
+</code></pre><p>前端启动使用 nginx 代理打包的dist目录实现前端页面的访问</p>
+<p>查看springboot后台日志：</p>
+<pre><code>//springboot目录下
+cat nohup.out  
+</code></pre><p>查看java进程：</p>
+<pre><code>ps -ef | grep java
+</code></pre><p>关闭进程</p>
+<pre><code>kill -9 进程号
+</code></pre><p>安装 anywhere前端静态资源服务器插件：</p>
+<pre><code>npm install anywhere -g
+</code></pre><p>vue dist nginx配置反向代理：</p>
+<pre><code>location / {
+            root /home/server/dist;
+            index index.html index.htm;
+            try_files $uri $uri/ /index.html;
+        }
+
+</code></pre><p>nginx重启：</p>
+<pre><code>/nginx -s reload
+</code></pre><blockquote>
+<p>注意：前端文件上传和导出的 url都需要配置 <strong>serverIp</strong></p>
+</blockquote>
+<p>后台ip配置：</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span><span class="w">	</span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="m">8.142.136.215</span><span class="w">
+</span><span class="w">	</span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9090</span><span class="w">
+</span></code></pre></div><p>文件上传、下载和导出都需要使用到服务器的公网IP</p>
+<p>接口请求也需要使用公网IP</p>
+<p>注意：User.vue中上传按钮必须这样写（用单引号拼接）：</p>
+<pre><code>&lt;el-upload :action=&quot;'http://' + serverIp + ':9090/user/import'&quot; 
+</code></pre><p><strong>修改hosts文件：（C:\Windows\System32\drivers\etc）</strong></p>
+<hr>
+<pre><code>8.142.136.215 www.sheephe.com 
+</code></pre><p><strong>将服务器IP映射到域名（只对本机有效</strong>）</p>
+<p><strong>访问服务器端Swagger出现弹窗：</strong></p>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204101816031.png" alt=""  /></p>
+<p>两种可能：</p>
+<p>1、在SwaggerConfig.java文件中加上 @EnableSwagger2注解</p>
+<p>2、<strong>被拦截器拦截，在拦截器配置中放行静态文件:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addInterceptors</span><span class="o">(</span><span class="n">InterceptorRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">addInterceptor</span><span class="o">(</span><span class="n">jwtInterceptor</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">addPathPatterns</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">)</span>  <span class="c1">// 拦截所有请求，通过判断token是否合法来决定是否需要登录
+</span><span class="c1"></span>                <span class="o">.</span><span class="na">excludePathPatterns</span><span class="o">(</span><span class="s">&#34;/user/login&#34;</span><span class="o">,</span> <span class="s">&#34;/user/register&#34;</span><span class="o">,</span> <span class="s">&#34;/**/export&#34;</span><span class="o">,</span> <span class="s">&#34;/**/import&#34;</span><span class="o">,</span> <span class="s">&#34;/file/**&#34;</span><span class="o">,</span><span class="s">&#34;/swagger-resources/**&#34;</span><span class="o">,</span> <span class="s">&#34;/webjars/**&#34;</span><span class="o">,</span> <span class="s">&#34;/v2/**&#34;</span><span class="o">,</span> <span class="s">&#34;/swagger-ui.html/**&#34;</span><span class="o">,</span> <span class="s">&#34;/api&#34;</span><span class="o">,</span> <span class="s">&#34;/api-docs&#34;</span><span class="o">,</span> <span class="s">&#34;/api-docs/**&#34;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">excludePathPatterns</span><span class="o">(</span> <span class="s">&#34;/**/*.html&#34;</span><span class="o">,</span> <span class="s">&#34;/**/*.js&#34;</span><span class="o">,</span> <span class="s">&#34;/**/*.css&#34;</span><span class="o">,</span><span class="s">&#34;/**/*.woff&#34;</span><span class="o">,</span> <span class="s">&#34;/**/*.ttf&#34;</span><span class="o">);</span>  <span class="c1">// 放行静态文件
+</span><span class="c1"></span>    <span class="o">}</span>
+</code></pre></div><p>前端打包：</p>
+<pre><code>npm run build
+</code></pre><p><strong>打包成dist目录</strong></p>
+<p>在dist目录下，输入： anywhere -p 8080  可以启动前端项目</p>
+<h4 id="服务器文件上传">服务器文件上传</h4>
+<p>如果数据库中已经有这个文件了，则不会上传，或直接获取它已有的url</p>
+<p><strong>后台上传文件接口，用serverIp拼接不生效，直接写死即可</strong></p>
+<p><img src="https://gitee.com/sheephe/images/raw/master/img/202204101859321.png" alt=""  /></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/">服务器部署</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>承认自己的无知 , 乃是开启智慧的大门!</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 SheepHe&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

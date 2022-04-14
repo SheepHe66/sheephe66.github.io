@@ -6,7 +6,54 @@
     <description>Recent content in Posts on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2022 21:54:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Apr 2022 18:39:56 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>服务器部署项目</title>
+      <link>https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Thu, 14 Apr 2022 18:39:56 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</guid>
+      <description>服务器部署项目 常见Linux命令 查看内存： free -h
+查看存储空间： df -h
+查看当前运行的软件： top
+查看当前目录下的所有文件： ls (ll: 将所有文件按列表展示)
+解压文件： tar -zxvf 文件名
+压缩文件： tar -zcvf 文件名
+修改文件名： mv jdk1.8.0_321 jdk1.8
+移动文件到另一个文件夹： mv jdk1.8 /usr/local/
+用vim编辑文件：vim /etc/profile
+查看文件最后一屏： cat /etc/profile
+ubantu查看版本及内核：uname -a
+pwd: 查看当前目录
+ps -ef ：查看进程 （搭配grep使用 【 grep ：强大的文本搜索命令】）
+ps -ef | grep java: 查看Java进程号
+kill -9 进程号：杀掉该进程
+nohup java -jar springboot-0.0.1-SNAPSHOT.jar &amp;amp; ：将Java项目放在后台启动
+vim使用 按 A ：进入编辑模式 按 esc： 退出编辑模式 输入： :wq 保存 Linux配置Java环境变量 用vim编辑文件：</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot集成SwaggerUI</title>
+      <link>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</link>
+      <pubDate>Thu, 14 Apr 2022 18:39:38 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</guid>
+      <description>Spring Boot 集成 Swagger UI 访问地址：http://localhost:9090/swagger-ui/index.html
+集成版本:Swagger 3.0.0 pom.xml
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.springfox&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;springfox-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.0.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Swagger配置类
+SwaggerConfig.java
+import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import springfox.documentation.builders.ApiInfoBuilder; import springfox.documentation.builders.PathSelectors; import springfox.documentation.builders.RequestHandlerSelectors; import springfox.documentation.oas.annotations.EnableOpenApi; import springfox.documentation.service.ApiInfo; import springfox.documentation.service.Contact; import springfox.documentation.spi.DocumentationType; import springfox.documentation.spring.web.plugins.Docket; @Configuration @EnableOpenApi public class SwaggerConfig { /** * 创建API应用 * apiInfo() 增加API相关信息 * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现， * 本例采用指定扫描的包路径来定义指定要建立API的目录。 * * @return */ @Bean public Docket restApi() { return new Docket(DocumentationType.SWAGGER_2) .groupName(&amp;#34;标准接口&amp;#34;) .apiInfo(apiInfo(&amp;#34;Spring Boot中使用Swagger2构建RESTful APIs&amp;#34;, &amp;#34;1.0&amp;#34;)) .useDefaultResponseMessages(true) .</description>
+    </item>
+    
+    <item>
+      <title>MybatisPlus使用</title>
+      <link>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 14 Apr 2022 18:39:09 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</guid>
+      <description>MyBatis&amp;amp;MyBatisPlus应用 MyBatis配置 mybatis:mapper-locations:classpath:mapper/*.xml #扫描所有mybatis的xml文件#mybatis日志,可以在控制台打印具体执行的sql语句# configuration:# log-impl: org.apache.ibatis.logging.stdout.StdOutImplMyBatis xml映射文件格式 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE mapper PUBLIC &amp;#34;-//mybatis.org//DTD Mapper 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;#34;&amp;gt; &amp;lt;mapper namespace=&amp;#34;Mapper接口的全限定名称&amp;#34;&amp;gt; 这里写sql &amp;lt;/mapper&amp;gt; MyBatis动态sql复习 &amp;lt;if&amp;gt; 对于该标签的执行，当 test 的值为 true 时，会将其包含的 SQL 片断拼接到其所在的 SQL 语句中。 语法：&amp;lt;if test=&amp;#34;条件&amp;#34;&amp;gt; sql 语句的部分 &amp;lt;/if&amp;gt; &amp;lt;where&amp;gt; &amp;lt;if/&amp;gt;标签的中存在一个比较麻烦的地方：需要在 where 后手工添加 1=1 的子句。因为，若 where 后 的所有&amp;lt;if/&amp;gt;条件均为 false，而 where 后若又没有 1=1 子句，则 SQL 中就会只剩下一个空的 where，SQL 出错。所以，在 where 后，需要添加永为真子句 1=1，以防止这种情况的发生。但当数据量很大时，会 严重影响查询效率 使用&amp;lt;where/&amp;gt;标签，在有查询条件时，可以自动添加上 where 子句；没有查询条件时，不会添加 where 子句。需要注意的是，第一个&amp;lt;if/&amp;gt;标签中的 SQL 片断，可以不包含 and。不过，写上 and 也不错， 系统会将多出的 and 去掉。但其它&amp;lt;if/&amp;gt;中 SQL 片断的 and，必须要求写上。否则 SQL 语句将拼接出错 (&amp;lt;where&amp;gt;标签解决直接用where需要添加1=1影响效率的问题) 语法：&amp;lt;where&amp;gt; 其他动态 sql &amp;lt;/where&amp;gt; &amp;lt;foreach&amp;gt; &amp;lt;foreach/&amp;gt;标签用于实现对于数组与集合的遍历。对其使用，需要注意：collection 表示要遍历的集合类型, list ，array 等。open、close、separator 为对遍历内容的 SQL 拼接。 语法： &amp;lt;foreach collection=&amp;#34;集合类型&amp;#34; open=&amp;#34;开始的字符&amp;#34; close=&amp;#34;结束的字符&amp;#34; item=&amp;#34;集合中的成员&amp;#34; separator=&amp;#34;集合成员之间的分隔符&amp;#34;&amp;gt; #{item 的值} &amp;lt;/foreach&amp;gt; MyBatisPlus依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
+    </item>
+    
     <item>
       <title>LeetCode 排序数组</title>
       <link>https://sheephe66.github.io/p/leetcode-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</link>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SwaggerUI on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/swaggerui/</link>
+    <description>Recent content in SwaggerUI on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Apr 2022 18:39:38 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/swaggerui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot集成SwaggerUI</title>
+      <link>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</link>
+      <pubDate>Thu, 14 Apr 2022 18:39:38 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/springboot%E9%9B%86%E6%88%90swaggerui/</guid>
+      <description>Spring Boot 集成 Swagger UI 访问地址：http://localhost:9090/swagger-ui/index.html
+集成版本:Swagger 3.0.0 pom.xml
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.springfox&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;springfox-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.0.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Swagger配置类
+SwaggerConfig.java
+import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import springfox.documentation.builders.ApiInfoBuilder; import springfox.documentation.builders.PathSelectors; import springfox.documentation.builders.RequestHandlerSelectors; import springfox.documentation.oas.annotations.EnableOpenApi; import springfox.documentation.service.ApiInfo; import springfox.documentation.service.Contact; import springfox.documentation.spi.DocumentationType; import springfox.documentation.spring.web.plugins.Docket; @Configuration @EnableOpenApi public class SwaggerConfig { /** * 创建API应用 * apiInfo() 增加API相关信息 * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现， * 本例采用指定扫描的包路径来定义指定要建立API的目录。 * * @return */ @Bean public Docket restApi() { return new Docket(DocumentationType.SWAGGER_2) .groupName(&amp;#34;标准接口&amp;#34;) .apiInfo(apiInfo(&amp;#34;Spring Boot中使用Swagger2构建RESTful APIs&amp;#34;, &amp;#34;1.0&amp;#34;)) .useDefaultResponseMessages(true) .</description>
+    </item>
+    
+  </channel>
+</rss>

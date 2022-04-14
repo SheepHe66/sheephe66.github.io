@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MyBatis on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/mybatis/</link>
+    <description>Recent content in MyBatis on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Apr 2022 18:39:09 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MybatisPlus使用</title>
+      <link>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 14 Apr 2022 18:39:09 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/mybatisplus%E4%BD%BF%E7%94%A8/</guid>
+      <description>MyBatis&amp;amp;MyBatisPlus应用 MyBatis配置 mybatis:mapper-locations:classpath:mapper/*.xml #扫描所有mybatis的xml文件#mybatis日志,可以在控制台打印具体执行的sql语句# configuration:# log-impl: org.apache.ibatis.logging.stdout.StdOutImplMyBatis xml映射文件格式 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE mapper PUBLIC &amp;#34;-//mybatis.org//DTD Mapper 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;#34;&amp;gt; &amp;lt;mapper namespace=&amp;#34;Mapper接口的全限定名称&amp;#34;&amp;gt; 这里写sql &amp;lt;/mapper&amp;gt; MyBatis动态sql复习 &amp;lt;if&amp;gt; 对于该标签的执行，当 test 的值为 true 时，会将其包含的 SQL 片断拼接到其所在的 SQL 语句中。 语法：&amp;lt;if test=&amp;#34;条件&amp;#34;&amp;gt; sql 语句的部分 &amp;lt;/if&amp;gt; &amp;lt;where&amp;gt; &amp;lt;if/&amp;gt;标签的中存在一个比较麻烦的地方：需要在 where 后手工添加 1=1 的子句。因为，若 where 后 的所有&amp;lt;if/&amp;gt;条件均为 false，而 where 后若又没有 1=1 子句，则 SQL 中就会只剩下一个空的 where，SQL 出错。所以，在 where 后，需要添加永为真子句 1=1，以防止这种情况的发生。但当数据量很大时，会 严重影响查询效率 使用&amp;lt;where/&amp;gt;标签，在有查询条件时，可以自动添加上 where 子句；没有查询条件时，不会添加 where 子句。需要注意的是，第一个&amp;lt;if/&amp;gt;标签中的 SQL 片断，可以不包含 and。不过，写上 and 也不错， 系统会将多出的 and 去掉。但其它&amp;lt;if/&amp;gt;中 SQL 片断的 and，必须要求写上。否则 SQL 语句将拼接出错 (&amp;lt;where&amp;gt;标签解决直接用where需要添加1=1影响效率的问题) 语法：&amp;lt;where&amp;gt; 其他动态 sql &amp;lt;/where&amp;gt; &amp;lt;foreach&amp;gt; &amp;lt;foreach/&amp;gt;标签用于实现对于数组与集合的遍历。对其使用，需要注意：collection 表示要遍历的集合类型, list ，array 等。open、close、separator 为对遍历内容的 SQL 拼接。 语法： &amp;lt;foreach collection=&amp;#34;集合类型&amp;#34; open=&amp;#34;开始的字符&amp;#34; close=&amp;#34;结束的字符&amp;#34; item=&amp;#34;集合中的成员&amp;#34; separator=&amp;#34;集合成员之间的分隔符&amp;#34;&amp;gt; #{item 的值} &amp;lt;/foreach&amp;gt; MyBatisPlus依赖 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
+    </item>
+    
+  </channel>
+</rss>
