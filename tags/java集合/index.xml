@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java集合 on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/java%E9%9B%86%E5%90%88/</link>
+    <description>Recent content in Java集合 on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Apr 2022 22:12:28 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/java%E9%9B%86%E5%90%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Map详解</title>
+      <link>https://sheephe66.github.io/p/map%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Wed, 20 Apr 2022 22:12:28 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/map%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Map集合 常见的Map有：HashMap，HashTable，LinkedHashMap, ConcurrentHashMap， TreeMap
+Map都是双列的集合，采用键值对的方式存储，底层实现都是 数组 + 链表，也就是 hash表
+HashMap  HashMap 的 key 和值都可以为 null HashMap是 线程不安全的（任意时刻，可以有多个线程同时写HashMap） JDK1.7 底层采用 数组 + 链表 ，JDK1.8时 底层采用 数组 + 链表 + 红黑树  HashMap底层实现：
+HashMap根据 键的HashCode值存储数据，向HashMap中存储元素时，首先会计算一个hash值，然后根据hash值存到指定数组索引位置，数组的每一个元素都是一对 key-value，但由于hash值具有概率性，可能出现hash冲突，定位到同一数组下标处，此时就产生了链表结构。
+由于链表的遍历效率较低，取决于链表的长度，时间复杂度为 O(N), 如果链表太长，则查找效率低。所以JDK1.8 新增了红黑树结构，当链表中的元素超过 8 之后，改用红黑树存储，查找的时间复杂度为 O(log N)
+红黑树的特点： 每个节点只有两种颜色：红色或者黑色 根节点必须是黑色 每个叶子节点（NIL）都是黑色的空节点 从根节点到叶子节点，不能出现两个连续的红色节点 从任一节点出发，到它下边的子节点的路径包含的黑色节点数目都相同 大致地，HashMap里面是一个数组，数组中每个元素是一个单向链表，链表元素达到 8 以后，转为红黑树存储
+每一个数组或链表元素（即下图中 绿色实体）都是 一个 Entry嵌套类的示例
+Entry包含四个属性： Key 、 value 、 该数组下标的hash值、 链表的next指针
+三个属性：
+1. capacity： 当前数组容量，始终保持 2 ^ n（默认初始化容量是 16），可以扩容，扩容后容量为 数组大小的 2 倍 2.</description>
+    </item>
+    
+    <item>
+      <title>List详解</title>
+      <link>https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Wed, 20 Apr 2022 22:12:17 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/</guid>
+      <description>List集合 ArrayList   ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问
+  适合随机查找和遍历（通过索引也就是下标直接访问）
+  不适合插入和删除
+  线程不安全
+  ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍
+Vector  Vector内部通过数组实现 Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是线程安全的 Vector访问速度比ArrayList慢，应用较少  Vector构造时容量就是 10，当元素超过集合容量时，扩容为当前容量的 2倍
+LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较快（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）  </description>
+    </item>
+    
+  </channel>
+</rss>

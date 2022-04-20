@@ -6,7 +6,116 @@
         <description>Recent content on SheepHe&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 14 Apr 2022 18:39:56 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 20 Apr 2022 22:12:28 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Map详解</title>
+        <link>https://sheephe66.github.io/p/map%E8%AF%A6%E8%A7%A3/</link>
+        <pubDate>Wed, 20 Apr 2022 22:12:28 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/map%E8%AF%A6%E8%A7%A3/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/16.jpg" alt="Featured image of post Map详解" /&gt;&lt;h3 id=&#34;map集合&#34;&gt;Map集合&lt;/h3&gt;
+&lt;p&gt;常见的Map有：&lt;strong&gt;HashMap，HashTable，LinkedHashMap, ConcurrentHashMap， TreeMap&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Map都是双列的集合，采用&lt;strong&gt;键值对的方式存储&lt;/strong&gt;，底层实现都是 &lt;strong&gt;数组 + 链表&lt;/strong&gt;，也就是 hash表&lt;/p&gt;
+&lt;h4 id=&#34;hashmap&#34;&gt;HashMap&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;HashMap 的 key 和值都可以为 &lt;strong&gt;null&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;HashMap是 &lt;strong&gt;线程不安全&lt;/strong&gt;的（任意时刻，可以有多个线程同时写HashMap）&lt;/li&gt;
+&lt;li&gt;JDK1.7 底层采用 数组 + 链表 ，JDK1.8时 底层采用 &lt;strong&gt;数组 + 链表 + 红黑树&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;HashMap底层实现：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HashMap根据 键的HashCode值存储数据&lt;/strong&gt;，向HashMap中存储元素时，首先会计算一个hash值，然后根据hash值存到指定数组索引位置，数组的每一个元素都是一对 key-value，但由于hash值具有概率性，可能出现&lt;strong&gt;hash冲突，定位到同一数组下标处，此时就产生了链表结构。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于&lt;strong&gt;链表的遍历效率较低，取决于链表的长度，时间复杂度为 O(N)&lt;/strong&gt;, 如果链表太长，则查找效率低。所以JDK1.8 新增了红黑树结构，当链表中的元素超过 8 之后，改用&lt;strong&gt;红黑树存储，查找的时间复杂度为 O(log N)&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;红黑树的特点：
+每个节点只有两种颜色：红色或者黑色
+根节点必须是黑色
+每个叶子节点（NIL）都是黑色的空节点
+从根节点到叶子节点，不能出现两个连续的红色节点
+从任一节点出发，到它下边的子节点的路径包含的黑色节点数目都相同
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大致地，HashMap里面是一个数组，&lt;strong&gt;数组中每个元素是一个单向链表&lt;/strong&gt;，链表元素达到 8 以后，转为红黑树存储&lt;/p&gt;
+&lt;p&gt;每一个数组或链表元素（即下图中 绿色实体）都是 一个 &lt;strong&gt;Entry嵌套类的示例&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Entry包含四个属性： &lt;strong&gt;Key 、 value 、 该数组下标的hash值、 链表的next指针&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三个属性：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. capacity： 当前数组容量，始终保持 2 ^ n（默认初始化容量是 16），可以扩容，扩容后容量为 数组大小的 2 倍
+
+2. Loadfactor：负载因子，默认为 0.75 (使用0.75，是时间和空间的权衡)
+
+3. threshold：扩容阈值，等于 capacity * Loadfactor (当存储的元素的容量达到这个阈值时，需要扩容)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204202110522.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204202111258.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;concurrenthashmap线程安全&#34;&gt;ConcurrentHashMap（线程安全）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;支持并发操作，是线程安全的HashMap&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由Segment数组组成，每个Segment元素是可以看成一个HashMap结构，&lt;strong&gt;每个Segment都通过继承ReentranLock来实现线程同步&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ConcurrencyLevel&lt;/strong&gt;：并发数、Segment数，默认是16，就是默认Segment数量为 16，&lt;strong&gt;理论上支持16个并发操作&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ConcurrentLevel 在初始化时，可以设置为其他值，&lt;strong&gt;一旦初始化，就不可以再扩容&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204202144471.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204202145274.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;hashtable线程安全&#34;&gt;HashTable（线程安全）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;HashTable是遗留类，很多功能与HashMap类似（不同的是HashTable继承自 Dictionary 类，是线程安全的）&lt;/li&gt;
+&lt;li&gt;虽然线程安全，但由于ConcurrentHashMap引入了分段锁，其并发性不如 ConcurrentHashMap,一般不建议使用HashTable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;linkedhashmap记录插入顺序&#34;&gt;LinkedHashMap（记录插入顺序）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;LinkedHashMap是HashMap的一个子类，保存了元素的插入顺序&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用 Iterator 迭代器遍历时，得到的记录顺序就是 元素插入的顺序&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;treemap可排序&#34;&gt;TreeMap（可排序）&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TreeMap 实现 SortedMap 接口，能够把它保存的记录根据键排序&lt;/strong&gt;，默认是按键值的升序排序&lt;/li&gt;
+&lt;li&gt;也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的&lt;/li&gt;
+&lt;li&gt;如果使用排序的映射，建议使用 TreeMap&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在使用 TreeMap 时，key 必须实现 Comparable 接口或者在构造 TreeMap 传入自定义的&lt;/strong&gt;
+&lt;strong&gt;Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>List详解</title>
+        <link>https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/</link>
+        <pubDate>Wed, 20 Apr 2022 22:12:17 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/15.jpg" alt="Featured image of post List详解" /&gt;&lt;h3 id=&#34;list集合&#34;&gt;List集合&lt;/h3&gt;
+&lt;h4 id=&#34;arraylist&#34;&gt;ArrayList&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ArrayList是最常用的List实现类，内部通过&lt;strong&gt;数组&lt;/strong&gt;实现，可以对元素进行快速随机访问&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;适合随机查找和遍历&lt;/strong&gt;（通过索引也就是下标直接访问）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不适合插入和删除&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线程不安全&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ArrayList扩容机制：&lt;strong&gt;构造时大小为 0，第一次添加元素后，变为默认容量10&lt;/strong&gt;，当集合元素个数超过容量后，扩容方式为：&lt;strong&gt;当前容量的 1.5 倍&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;vector&#34;&gt;Vector&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Vector内部通过&lt;strong&gt;数组&lt;/strong&gt;实现&lt;/li&gt;
+&lt;li&gt;Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是&lt;strong&gt;线程安全&lt;/strong&gt;的&lt;/li&gt;
+&lt;li&gt;Vector访问速度比ArrayList慢，应用较少&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vector&lt;strong&gt;构造时容量就是 10&lt;/strong&gt;，当元素超过集合容量时，&lt;strong&gt;扩容为当前容量的 2倍&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;linkedlist&#34;&gt;LinkedList&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;LinkedList内部通过链表实现&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适合插入和删除，速度较快&lt;/strong&gt;（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>服务器部署项目</title>
         <link>https://sheephe66.github.io/p/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</link>
         <pubDate>Thu, 14 Apr 2022 18:39:56 +0800</pubDate>
