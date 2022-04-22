@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='List集合 List集合 底层通过数组实现，数组在内存中是连续存储的（链表分散存储），查询和访问较快
-List 和 数组 区别：（为什么用List？）
-但是定义数组时，需要定义长度，不是很灵活，太长或太短都不行，同时不方便进行数据的插入和删除，==而List的大小是可以动态扩充和收缩的，比如new 一个ArrayList对象时不用指明长度，同时ArrayList 继承了IList 接口，可以很方便的进行数据的插入和删除（通过Add(),Insert(), Remove()，IndexOf()等方法==
-List缺点：list中可以插入不同的数据类型(因为默认泛型类型为 Object类)，数据处理时存在类型转换处理，有性能损耗
-==可以使用泛型List，创建时用泛型指定该List数据类型，避免装箱和拆箱操作。==
-List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); ArrayList  ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问 适合随机查找和遍历（通过索引也就是下标直接访问） 不适合插入和删除 线程不安全   ==ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍==
-Vector  Vector内部通过数组实现 Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是线程安全的 Vector访问速度比ArrayList慢，应用较少  Vector构造时容量就是 10，当元素超过集合容量时，扩容为当前容量的 2倍
-LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较快（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）  '><title>List详解</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SQL复习—多表查询 引入 将下面三条sql合成一条？ （ 连接三张表 )
+使用多表连接：
+SELECT city FROM employees e JOIN departments d ON e.department_id = d.department_id JOIN locations l ON d.location_id = l.location_id WHERE e.last_name = &amp;#39;Abel&amp;#39;; ==多表连接时，如果查询语句中出现了 多张表中都存在的字段，需要重叠的字段所属的表名==
+==从sql优化角度考虑，建议在多表查询中，每个字段都指明其所在的表名，这样数据量较大时，效率较高==
+内连接 合并具有同一列的两张以上的表的行，就是取几张表的交集 （结果集中不包含一张表与另一张表不匹配的行）
+两张表 SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id FROM employees e JOIN departments d ON (e.department_id = d.department_id); 两张以上的表 SELECT employee_id, city, department_name FROM employees e JOIN departments d ON d.department_id = e.department_id JOIN locations l ON d.'><title>SQL多表查询</title>
 
-<link rel='canonical' href='https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/'>
+<link rel='canonical' href='https://sheephe66.github.io/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='List详解'>
-<meta property='og:description' content='List集合 List集合 底层通过数组实现，数组在内存中是连续存储的（链表分散存储），查询和访问较快
-List 和 数组 区别：（为什么用List？）
-但是定义数组时，需要定义长度，不是很灵活，太长或太短都不行，同时不方便进行数据的插入和删除，==而List的大小是可以动态扩充和收缩的，比如new 一个ArrayList对象时不用指明长度，同时ArrayList 继承了IList 接口，可以很方便的进行数据的插入和删除（通过Add(),Insert(), Remove()，IndexOf()等方法==
-List缺点：list中可以插入不同的数据类型(因为默认泛型类型为 Object类)，数据处理时存在类型转换处理，有性能损耗
-==可以使用泛型List，创建时用泛型指定该List数据类型，避免装箱和拆箱操作。==
-List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); ArrayList  ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问 适合随机查找和遍历（通过索引也就是下标直接访问） 不适合插入和删除 线程不安全   ==ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍==
-Vector  Vector内部通过数组实现 Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是线程安全的 Vector访问速度比ArrayList慢，应用较少  Vector构造时容量就是 10，当元素超过集合容量时，扩容为当前容量的 2倍
-LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较快（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）  '>
-<meta property='og:url' content='https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='SQL多表查询'>
+<meta property='og:description' content='SQL复习—多表查询 引入 将下面三条sql合成一条？ （ 连接三张表 )
+使用多表连接：
+SELECT city FROM employees e JOIN departments d ON e.department_id = d.department_id JOIN locations l ON d.location_id = l.location_id WHERE e.last_name = &amp;#39;Abel&amp;#39;; ==多表连接时，如果查询语句中出现了 多张表中都存在的字段，需要重叠的字段所属的表名==
+==从sql优化角度考虑，建议在多表查询中，每个字段都指明其所在的表名，这样数据量较大时，效率较高==
+内连接 合并具有同一列的两张以上的表的行，就是取几张表的交集 （结果集中不包含一张表与另一张表不匹配的行）
+两张表 SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id FROM employees e JOIN departments d ON (e.department_id = d.department_id); 两张以上的表 SELECT employee_id, city, department_name FROM employees e JOIN departments d ON d.department_id = e.department_id JOIN locations l ON d.'>
+<meta property='og:url' content='https://sheephe66.github.io/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/'>
 <meta property='og:site_name' content='SheepHe&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Java集合' /><meta property='article:published_time' content='2022-04-20T22:12:17&#43;08:00'/><meta property='article:modified_time' content='2022-04-20T22:12:17&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/15.jpg' />
-<meta name="twitter:title" content="List详解">
-<meta name="twitter:description" content="List集合 List集合 底层通过数组实现，数组在内存中是连续存储的（链表分散存储），查询和访问较快
-List 和 数组 区别：（为什么用List？）
-但是定义数组时，需要定义长度，不是很灵活，太长或太短都不行，同时不方便进行数据的插入和删除，==而List的大小是可以动态扩充和收缩的，比如new 一个ArrayList对象时不用指明长度，同时ArrayList 继承了IList 接口，可以很方便的进行数据的插入和删除（通过Add(),Insert(), Remove()，IndexOf()等方法==
-List缺点：list中可以插入不同的数据类型(因为默认泛型类型为 Object类)，数据处理时存在类型转换处理，有性能损耗
-==可以使用泛型List，创建时用泛型指定该List数据类型，避免装箱和拆箱操作。==
-List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); ArrayList  ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问 适合随机查找和遍历（通过索引也就是下标直接访问） 不适合插入和删除 线程不安全   ==ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍==
-Vector  Vector内部通过数组实现 Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是线程安全的 Vector访问速度比ArrayList慢，应用较少  Vector构造时容量就是 10，当元素超过集合容量时，扩容为当前容量的 2倍
-LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较快（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）  "><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://sheephe66.github.io/15.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='SQL' /><meta property='article:published_time' content='2022-04-22T08:42:31&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T08:42:31&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/18.jpg' />
+<meta name="twitter:title" content="SQL多表查询">
+<meta name="twitter:description" content="SQL复习—多表查询 引入 将下面三条sql合成一条？ （ 连接三张表 )
+使用多表连接：
+SELECT city FROM employees e JOIN departments d ON e.department_id = d.department_id JOIN locations l ON d.location_id = l.location_id WHERE e.last_name = &amp;#39;Abel&amp;#39;; ==多表连接时，如果查询语句中出现了 多张表中都存在的字段，需要重叠的字段所属的表名==
+==从sql优化角度考虑，建议在多表查询中，每个字段都指明其所在的表名，这样数据量较大时，效率较高==
+内连接 合并具有同一列的两张以上的表的行，就是取几张表的交集 （结果集中不包含一张表与另一张表不匹配的行）
+两张表 SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id FROM employees e JOIN departments d ON (e.department_id = d.department_id); 两张以上的表 SELECT employee_id, city, department_name FROM employees e JOIN departments d ON d.department_id = e.department_id JOIN locations l ON d."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/18.jpg' />
     </head>
     <body class="">
     <script>
@@ -178,9 +172,9 @@ LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/list%E8%AF%A6%E8%A7%A3/">
+            <a href="/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">
                 
-                    <img src="/15.jpg" loading="lazy" alt="Featured image of post List详解" />
+                    <img src="/18.jpg" loading="lazy" alt="Featured image of post SQL多表查询" />
                 
             </a>
         </div>
@@ -190,7 +184,7 @@ LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较
     
 
     <h2 class="article-title">
-        <a href="/p/list%E8%AF%A6%E8%A7%A3/">List详解</a>
+        <a href="/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">SQL多表查询</a>
     </h2>
 
     <footer class="article-time">
@@ -202,39 +196,69 @@ LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较
 
 
 
-        <time class="article-time--published">Apr 20, 2022</time>
+        <time class="article-time--published">Apr 22, 2022</time>
     </footer></div>
 </header>
 
     <section class="article-content">
-    <h3 id="list集合">List集合</h3>
-<p>List集合 底层通过数组实现，数组在内存中是<strong>连续存储</strong>的（链表分散存储），查询和访问较快</p>
-<p><strong>List 和 数组 区别：</strong>（为什么用List？）</p>
-<p>但是定义数组时，需要定义长度，不是很灵活，太长或太短都不行，同时不方便进行数据的插入和删除，==而List的大小是可以动态扩充和收缩的，比如new 一个ArrayList对象时不用指明长度，同时ArrayList 继承了IList 接口，可以很方便的进行数据的插入和删除（通过Add(),Insert(), Remove()，IndexOf()等方法==</p>
-<p><strong>List缺点</strong>：list中可以插入不同的数据类型(因为默认泛型类型为 Object类)，数据处理时存在类型转<strong>换处理，有性能损耗</strong></p>
-<p>==<strong>可以使用泛型List，创建时用泛型指定该List数据类型，避免装箱和拆箱操作。</strong>==</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</code></pre></div><h4 id="arraylist">ArrayList</h4>
+    <h3 id="sql复习多表查询">SQL复习—多表查询</h3>
+<h4 id="引入">引入</h4>
+<p><strong>将下面三条sql合成一条？  （ 连接三张表 )</strong></p>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204201104961.png" alt=""  /></p>
+<p><strong>使用多表连接：</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">city</span>
+<span class="k">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="k">JOIN</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="n">e</span><span class="p">.</span><span class="n">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">department_id</span>
+<span class="k">JOIN</span> <span class="n">locations</span> <span class="n">l</span>
+<span class="k">ON</span> <span class="n">d</span><span class="p">.</span><span class="n">location_id</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">location_id</span>
+<span class="k">WHERE</span> <span class="n">e</span><span class="p">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Abel&#39;</span><span class="p">;</span>
+</code></pre></div><p>==多表连接时，如果查询语句中出现了 多张表中都存在的字段，需要重叠的字段所属的表名==</p>
+<p>==从sql优化角度考虑，建议在多表查询中，每个字段都指明其所在的表名，这样数据量较大时，效率较高==</p>
+<h4 id="内连接">内连接</h4>
+<p>合并具有同一列的两张以上的表的行，就是取<strong>几张表的交集</strong>  （结果集中不包含一张表与另一张表不匹配的行）</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="err">两张表</span>
+<span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">department_id</span><span class="p">,</span>
+<span class="n">d</span><span class="p">.</span><span class="n">department_id</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">location_id</span>
+<span class="k">FROM</span> <span class="n">employees</span> <span class="n">e</span> <span class="k">JOIN</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">department_id</span><span class="p">);</span>
+
+<span class="err">两张以上的表</span>
+<span class="k">SELECT</span> <span class="n">employee_id</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">department_name</span>
+<span class="k">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="k">JOIN</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="n">d</span><span class="p">.</span><span class="n">department_id</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">department_id</span>
+<span class="k">JOIN</span> <span class="n">locations</span> <span class="n">l</span>
+<span class="k">ON</span> <span class="n">d</span><span class="p">.</span><span class="n">location_id</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">location_id</span><span class="p">;</span>
+</code></pre></div><h4 id="外连接">外连接</h4>
+<p>合并具有同一列的两张以上的表的行，结果集中除了两张的表匹配的行，<strong>还查询到了 左表 或 右表中不匹配的行</strong></p>
 <ul>
-<li>ArrayList是最常用的List实现类，内部通过<strong>数组</strong>实现，可以对元素进行快速随机访问</li>
-<li><strong>适合随机查找和遍历</strong>（通过索引也就是下标直接访问）</li>
-<li>不适合插入和删除</li>
-<li>线程不安全</li>
-<li></li>
+<li>左外连接</li>
 </ul>
-<p>==ArrayList扩容机制：<strong>构造时大小为 0，第一次添加元素后，变为默认容量10</strong>，当集合元素个数超过容量后，扩容方式为：<strong>当前容量的 1.5 倍</strong>==</p>
-<h4 id="vector">Vector</h4>
-<ul>
-<li>Vector内部通过<strong>数组</strong>实现</li>
-<li>Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是<strong>线程安全</strong>的</li>
-<li>Vector访问速度比ArrayList慢，应用较少</li>
+<p>除了返回满足连接条件的行，<strong>还返回了 左表中不满足来连接条件的行</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">department_id</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">department_name</span>
+<span class="k">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">department_id</span><span class="p">)</span> <span class="p">;</span>
+</code></pre></div><ul>
+<li>右外连接</li>
 </ul>
-<p>Vector<strong>构造时容量就是 10</strong>，当元素超过集合容量时，<strong>扩容为当前容量的 2倍</strong></p>
-<h4 id="linkedlist">LinkedList</h4>
-<ul>
-<li>LinkedList内部通过链表实现</li>
-<li><strong>适合插入和删除，速度较快</strong>（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）</li>
-</ul>
+<p>除了返回满足连接条件的行，<strong>还返回了 左表中不满足来连接条件的行</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">department_id</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">department_name</span>
+<span class="k">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="k">RIGHT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">departments</span> <span class="n">d</span>
+<span class="k">ON</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">department_id</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">department_id</span><span class="p">)</span> <span class="p">;</span>
+</code></pre></div><h4 id="union关键字">UNION关键字</h4>
+<p><strong>合并查询结果</strong> 利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并
+时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION
+ALL关键字分隔</p>
+<p>==UNION：自动去重==</p>
+<p>==UNION [ALL]:  不去重==</p>
+<p><em>注意：执行UNION ALL语句时所需要的资源比UNION语句少。如果明确知道合并数据后的结果数据</em>
+<em>不存在重复数据，或者不需要去除重复的数据，则尽量使用UNION ALL语句，以提高数据查询的效</em>
+<em>率</em></p>
+<h4 id="sql连接韦恩图">SQL连接韦恩图</h4>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204211738375.png" alt="image-20220421173837519"  /></p>
 
 </section>
 
@@ -243,7 +267,7 @@ LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较
     
     <section class="article-tags">
         
-            <a href="/tags/java%E9%9B%86%E5%90%88/">Java集合</a>
+            <a href="/tags/sql/">SQL</a>
         
     </section>
 

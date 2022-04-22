@@ -31,11 +31,12 @@ Entry包含四个属性： Key 、 value 、 该数组下标的hash值、 链表
       <pubDate>Wed, 20 Apr 2022 22:12:17 +0800</pubDate>
       
       <guid>https://sheephe66.github.io/p/list%E8%AF%A6%E8%A7%A3/</guid>
-      <description>List集合 ArrayList   ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问
-  适合随机查找和遍历（通过索引也就是下标直接访问）
-  不适合插入和删除
-  线程不安全
-  ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍
+      <description>List集合 List集合 底层通过数组实现，数组在内存中是连续存储的（链表分散存储），查询和访问较快
+List 和 数组 区别：（为什么用List？）
+但是定义数组时，需要定义长度，不是很灵活，太长或太短都不行，同时不方便进行数据的插入和删除，==而List的大小是可以动态扩充和收缩的，比如new 一个ArrayList对象时不用指明长度，同时ArrayList 继承了IList 接口，可以很方便的进行数据的插入和删除（通过Add(),Insert(), Remove()，IndexOf()等方法==
+List缺点：list中可以插入不同的数据类型(因为默认泛型类型为 Object类)，数据处理时存在类型转换处理，有性能损耗
+==可以使用泛型List，创建时用泛型指定该List数据类型，避免装箱和拆箱操作。==
+List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); ArrayList  ArrayList是最常用的List实现类，内部通过数组实现，可以对元素进行快速随机访问 适合随机查找和遍历（通过索引也就是下标直接访问） 不适合插入和删除 线程不安全   ==ArrayList扩容机制：构造时大小为 0，第一次添加元素后，变为默认容量10，当集合元素个数超过容量后，扩容方式为：当前容量的 1.5 倍==
 Vector  Vector内部通过数组实现 Vector使用 synchronized关键字锁定方法，即：同一时刻只能有一个线程写Vector， 所以是线程安全的 Vector访问速度比ArrayList慢，应用较少  Vector构造时容量就是 10，当元素超过集合容量时，扩容为当前容量的 2倍
 LinkedList  LinkedList内部通过链表实现 适合插入和删除，速度较快（指针移动到指定位置，查询慢：需要指针从头开始一个一个查找）  </description>
     </item>

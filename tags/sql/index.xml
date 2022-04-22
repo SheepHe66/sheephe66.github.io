@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/sql/</link>
+    <description>Recent content in SQL on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Apr 2022 08:42:31 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL多表查询</title>
+      <link>https://sheephe66.github.io/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Fri, 22 Apr 2022 08:42:31 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</guid>
+      <description>SQL复习—多表查询 引入 将下面三条sql合成一条？ （ 连接三张表 )
+使用多表连接：
+SELECT city FROM employees e JOIN departments d ON e.department_id = d.department_id JOIN locations l ON d.location_id = l.location_id WHERE e.last_name = &amp;#39;Abel&amp;#39;; ==多表连接时，如果查询语句中出现了 多张表中都存在的字段，需要重叠的字段所属的表名==
+==从sql优化角度考虑，建议在多表查询中，每个字段都指明其所在的表名，这样数据量较大时，效率较高==
+内连接 合并具有同一列的两张以上的表的行，就是取几张表的交集 （结果集中不包含一张表与另一张表不匹配的行）
+两张表 SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id FROM employees e JOIN departments d ON (e.department_id = d.department_id); 两张以上的表 SELECT employee_id, city, department_name FROM employees e JOIN departments d ON d.department_id = e.department_id JOIN locations l ON d.</description>
+    </item>
+    
+    <item>
+      <title>SQL单表查询</title>
+      <link>https://sheephe66.github.io/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Fri, 22 Apr 2022 08:42:19 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</guid>
+      <description>SQL复习—单表 单表查询 简单CRUD INSERT INTO 表名 (字段1,字段2,···,字段n) VALUES (值1,值2,···,值n); //同时插入多条数据,直接在后面加 ,(值1,值2,···,值n) DELETE FROM 表名 WHERE 过滤条件; UPDATE 表名 SET 字段1 = 更新值; SELECT 字段名··· FROM 表名 WHERE 过滤条件 ; 去重DISTINCT SELECT DISTINCT department_id,salary FROM employees; GROUP BY分组 将结果集按指定字段进行分组
+GROUP BY 位于： WHERE之后，HAVING之前 (WHERE必须在FROM后面) HAVING语句 //HAVING语句必须搭配GROUP BY使用 SELECT * FROM tb_name GROUP BY score HAVING count(*)&amp;gt;2 条件控制符 =、 &amp;gt;、 &amp;lt;、 &amp;lt;&amp;gt;、 IN(1,2,3......)、 BETWEEN a AND b 、NOT AND 、OR 模糊查询Like()用法: % 为匹配任意 , _ 匹配一个字符（可以是汉字） IS NULL 空值检测 SELECT结构 #方式1： SELECT .</description>
+    </item>
+    
+  </channel>
+</rss>

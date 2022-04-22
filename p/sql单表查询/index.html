@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SQL复习—单表 单表查询 简单CRUD INSERT INTO 表名 (字段1,字段2,···,字段n) VALUES (值1,值2,···,值n); //同时插入多条数据,直接在后面加 ,(值1,值2,···,值n) DELETE FROM 表名 WHERE 过滤条件; UPDATE 表名 SET 字段1 = 更新值; SELECT 字段名··· FROM 表名 WHERE 过滤条件 ; 去重DISTINCT SELECT DISTINCT department_id,salary FROM employees; GROUP BY分组 将结果集按指定字段进行分组
+GROUP BY 位于： WHERE之后，HAVING之前 (WHERE必须在FROM后面) HAVING语句 //HAVING语句必须搭配GROUP BY使用 SELECT * FROM tb_name GROUP BY score HAVING count(*)&amp;gt;2 条件控制符 =、 &amp;gt;、 &amp;lt;、 &amp;lt;&amp;gt;、 IN(1,2,3......)、 BETWEEN a AND b 、NOT AND 、OR 模糊查询Like()用法: % 为匹配任意 , _ 匹配一个字符（可以是汉字） IS NULL 空值检测 SELECT结构 #方式1： SELECT .'><title>SQL单表查询</title>
+
+<link rel='canonical' href='https://sheephe66.github.io/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='SQL单表查询'>
+<meta property='og:description' content='SQL复习—单表 单表查询 简单CRUD INSERT INTO 表名 (字段1,字段2,···,字段n) VALUES (值1,值2,···,值n); //同时插入多条数据,直接在后面加 ,(值1,值2,···,值n) DELETE FROM 表名 WHERE 过滤条件; UPDATE 表名 SET 字段1 = 更新值; SELECT 字段名··· FROM 表名 WHERE 过滤条件 ; 去重DISTINCT SELECT DISTINCT department_id,salary FROM employees; GROUP BY分组 将结果集按指定字段进行分组
+GROUP BY 位于： WHERE之后，HAVING之前 (WHERE必须在FROM后面) HAVING语句 //HAVING语句必须搭配GROUP BY使用 SELECT * FROM tb_name GROUP BY score HAVING count(*)&amp;gt;2 条件控制符 =、 &amp;gt;、 &amp;lt;、 &amp;lt;&amp;gt;、 IN(1,2,3......)、 BETWEEN a AND b 、NOT AND 、OR 模糊查询Like()用法: % 为匹配任意 , _ 匹配一个字符（可以是汉字） IS NULL 空值检测 SELECT结构 #方式1： SELECT .'>
+<meta property='og:url' content='https://sheephe66.github.io/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/'>
+<meta property='og:site_name' content='SheepHe&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='SQL' /><meta property='article:published_time' content='2022-04-22T08:42:19&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T08:42:19&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/17.png' />
+<meta name="twitter:title" content="SQL单表查询">
+<meta name="twitter:description" content="SQL复习—单表 单表查询 简单CRUD INSERT INTO 表名 (字段1,字段2,···,字段n) VALUES (值1,值2,···,值n); //同时插入多条数据,直接在后面加 ,(值1,值2,···,值n) DELETE FROM 表名 WHERE 过滤条件; UPDATE 表名 SET 字段1 = 更新值; SELECT 字段名··· FROM 表名 WHERE 过滤条件 ; 去重DISTINCT SELECT DISTINCT department_id,salary FROM employees; GROUP BY分组 将结果集按指定字段进行分组
+GROUP BY 位于： WHERE之后，HAVING之前 (WHERE必须在FROM后面) HAVING语句 //HAVING语句必须搭配GROUP BY使用 SELECT * FROM tb_name GROUP BY score HAVING count(*)&amp;gt;2 条件控制符 =、 &amp;gt;、 &amp;lt;、 &amp;lt;&amp;gt;、 IN(1,2,3......)、 BETWEEN a AND b 、NOT AND 、OR 模糊查询Like()用法: % 为匹配任意 , _ 匹配一个字符（可以是汉字） IS NULL 空值检测 SELECT结构 #方式1： SELECT ."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/17.png' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/1_hufc62854409b45f5799a497ed33101f9b_36924_300x0_resize_q75_box.jpg" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://sheephe66.github.io/">SheepHe&#39;s Blog</a></h1>
+        <h2 class="site-description">欢迎来到SheepHe的个人小站！</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/sheephe66'>
+                
+                    <?xml version="1.0" ?><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://sheephe66.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/">
+                
+                    <img src="/17.png" loading="lazy" alt="Featured image of post SQL单表查询" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/sql%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/">SQL单表查询</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 22, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="sql复习单表">SQL复习—单表</h2>
+<h3 id="单表查询">单表查询</h3>
+<h4 id="简单crud">简单CRUD</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">表名</span> <span class="p">(</span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span><span class="err">字段</span><span class="mi">2</span><span class="p">,</span><span class="err">···</span><span class="p">,</span><span class="err">字段</span><span class="n">n</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,</span><span class="err">···</span><span class="p">,</span><span class="err">值</span><span class="n">n</span><span class="p">);</span>
+
+<span class="o">//</span><span class="err">同时插入多条数据</span><span class="p">,</span><span class="err">直接在后面加</span>  <span class="p">,(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,</span><span class="err">···</span><span class="p">,</span><span class="err">值</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">表名</span> <span class="k">WHERE</span> <span class="err">过滤条件</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="err">表名</span> <span class="k">SET</span> <span class="err">字段</span><span class="mi">1</span> <span class="o">=</span> <span class="err">更新值</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="err">字段名···</span>
+<span class="k">FROM</span> <span class="err">表名</span>
+<span class="k">WHERE</span> <span class="err">过滤条件</span> <span class="p">;</span>
+</code></pre></div><h4 id="去重distinct">去重DISTINCT</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">department_id</span><span class="p">,</span><span class="n">salary</span>
+<span class="k">FROM</span> <span class="n">employees</span><span class="p">;</span>
+</code></pre></div><h4 id="group-by分组">GROUP BY分组</h4>
+<p>将结果集按指定字段进行分组</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">GROUP</span> <span class="k">BY</span> <span class="err">位于：</span> <span class="n">WHERE之后</span><span class="err">，</span><span class="n">HAVING之前</span>  <span class="p">(</span><span class="n">WHERE必须在FROM后面</span><span class="p">)</span>
+</code></pre></div><h4 id="having语句">HAVING语句</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">//</span><span class="n">HAVING语句必须搭配GROUP</span> <span class="n">BY使用</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tb_name</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">score</span> <span class="k">HAVING</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span>
+</code></pre></div><h4 id="条件控制符">条件控制符</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">=</span><span class="err">、</span> <span class="o">&gt;</span><span class="err">、</span> <span class="o">&lt;</span><span class="err">、</span> <span class="o">&lt;&gt;</span><span class="err">、</span> <span class="k">IN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">......)</span><span class="err">、</span> <span class="k">BETWEEN</span> <span class="n">a</span> <span class="k">AND</span> <span class="n">b</span> <span class="err">、</span><span class="k">NOT</span>
+
+<span class="k">AND</span> <span class="err">、</span><span class="k">OR</span>
+
+<span class="err">模糊查询</span><span class="k">Like</span><span class="p">()</span><span class="err">用法</span><span class="p">:</span>  <span class="o">%</span>  <span class="err">为匹配任意</span> <span class="p">,</span>    <span class="n">_</span>  <span class="err">匹配一个字符（可以是汉字）</span>
+
+<span class="k">IS</span> <span class="k">NULL</span> <span class="err">空值检测</span>
+</code></pre></div><h4 id="select结构">SELECT结构</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="err">方式</span><span class="mi">1</span><span class="err">：</span>
+<span class="k">SELECT</span> <span class="p">...,....,...</span>
+<span class="k">FROM</span> <span class="p">...,...,....</span>
+<span class="k">WHERE</span> <span class="err">多表的连接条件</span>
+<span class="k">AND</span> <span class="err">不包含组函数的过滤条件</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="p">...,...</span>
+<span class="k">HAVING</span> <span class="err">包含组函数的过滤条件</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">...</span> <span class="k">ASC</span><span class="o">/</span><span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="p">...,...</span>
+
+<span class="o">#</span><span class="err">方式</span><span class="mi">2</span><span class="err">：</span>
+<span class="k">SELECT</span> <span class="p">...,....,...</span>
+<span class="k">FROM</span> <span class="p">...</span> <span class="k">JOIN</span> <span class="p">...</span>
+<span class="k">ON</span> <span class="err">多表的连接条件</span>
+<span class="k">JOIN</span> <span class="p">...</span>
+<span class="k">ON</span> <span class="p">...</span>
+<span class="k">WHERE</span> <span class="err">不包含组函数的过滤条件</span>
+<span class="k">AND</span><span class="o">/</span><span class="k">OR</span> <span class="err">不包含组函数的过滤条件</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="p">...,...</span>
+<span class="k">HAVING</span> <span class="err">包含组函数的过滤条件</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">...</span> <span class="k">ASC</span><span class="o">/</span><span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="p">...,...</span>
+
+<span class="o">#</span><span class="err">其中：</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="k">from</span><span class="err">：从哪些表中筛选</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="k">on</span><span class="err">：关联多表查询时，去除笛卡尔积</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">3</span><span class="err">）</span><span class="k">where</span><span class="err">：从表中筛选的条件</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">4</span><span class="err">）</span><span class="k">group</span> <span class="k">by</span><span class="err">：分组依据</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">5</span><span class="err">）</span><span class="k">having</span><span class="err">：在统计结果中再次筛选</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">6</span><span class="err">）</span><span class="k">order</span> <span class="k">by</span><span class="err">：排序</span>
+<span class="o">#</span><span class="err">（</span><span class="mi">7</span><span class="err">）</span><span class="k">limit</span><span class="err">：分页</span>
+</code></pre></div><h4 id="select查询两个顺序">SELECT查询两个顺序</h4>
+<ol>
+<li>关键字的顺序不能颠倒：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span> <span class="k">FROM</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="p">...</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="p">...</span> <span class="k">HAVING</span> <span class="p">...</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">...</span> <span class="k">LIMIT</span><span class="p">...</span>
+</code></pre></div><ol start="2">
+<li>SELECT 语句的执行顺序（在 MySQL 和 Oracle 中，SELECT 执行顺序基本相同）：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">FROM</span> <span class="o">-&gt;</span> <span class="k">WHERE</span> <span class="o">-&gt;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="o">-&gt;</span> <span class="k">HAVING</span> <span class="o">-&gt;</span> <span class="k">SELECT</span> <span class="err">的字段</span> <span class="o">-&gt;</span> <span class="k">DISTINCT</span> <span class="o">-&gt;</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="o">-&gt;</span> <span class="k">LIMIT</span>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204192109507.png" alt="image-20220419210854587"  /></p>
+<h4 id="常用五大聚合函数">常用五大聚合函数</h4>
+<p><strong>AVG()  \  SUM()</strong>   ：只适用于 数值类型</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">):</span> <span class="err">求平均值</span>
+<span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">):</span> <span class="err">求和</span>
+</code></pre></div><p>MAX | MIN ：适用于数值类型、字符串类型（比较 ACSII 值）、日期时间类型</p>
+<p><strong>MAX</strong>()  返回字段中的最大值</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">AS</span> <span class="n">maxAge</span> <span class="k">FROM</span> <span class="n">Student</span><span class="p">;</span>
+<span class="c1">---- age最大值
+</span></code></pre></div><p><strong>MIN</strong>()  返回字段中的最大值</p>
+<pre><code>SELECT MIN(age) AS minAge FROM Student;
+---- age最小值
+</code></pre><p><strong>COUNT函数</strong>  计算表中有多少行记录</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">COUNT</span><span class="p">(</span><span class="err">具体字段</span><span class="p">):</span> <span class="err">不能计算</span><span class="n">null值</span><span class="err">，所以不一定对</span>
+<span class="err">推荐使用</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+
+<span class="err">注意：</span> <span class="k">AVG</span><span class="p">(</span><span class="err">字段</span><span class="p">)</span> <span class="o">=</span> <span class="k">SUM</span><span class="p">(</span><span class="err">字段</span><span class="p">)</span> <span class="o">/</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">字段</span><span class="p">)</span>
+<span class="err">即：</span><span class="n">AVG求平均值函数默认</span> <span class="err">不计算</span><span class="n">null值</span>
+</code></pre></div><ul>
+<li>使用MyISAM存储引擎，COUNT(*) / COUNT(1) / COUNT(具体字段) ，效率相同，为O(1)  (MyISAM每张数据表都有一个 meta信息 存储记录总数)</li>
+<li>使用InnoDB存储引擎，效率：<strong>COUNT(*) = COUNT(1) &gt; COUNT(具体字段)</strong></li>
+</ul>
+<h4 id="其他函数">其他函数</h4>
+<p><strong>LOWER</strong>(s)  将字符串 s 的所有字母变成小写字母</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">LOWER</span><span class="p">(</span><span class="s1">&#39;RUNOOB&#39;</span><span class="p">);</span>
+<span class="c1">---- 返回runoob
+</span></code></pre></div><p><strong>UPPER</strong>(s)  将字符串 s 的所有字母变成大写字母</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">UCASE</span><span class="p">(</span><span class="s1">&#39;runoob&#39;</span><span class="p">);</span>
+<span class="c1">---- 返回RUNOOB
+</span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/sql/">SQL</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>承认自己的无知 , 乃是开启智慧的大门</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 SheepHe&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
