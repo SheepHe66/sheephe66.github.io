@@ -6,7 +6,22 @@
     <description>Recent content in LeetCode on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2022 21:54:08 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2022 13:23:30 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 反转链表</title>
+      <link>https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Wed, 27 Apr 2022 13:23:30 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>LeetCode-反转链表 题目信息 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+示例1：
+输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2：
+输入：head = [1,2] 输出：[2,1] class Solution { public ListNode reverseList(ListNode head){ ListNode prev = null; ListNode curr = head; ListNode next = null; while(curr != null) { next = curr.next; curr.next = prev; prev = curr; curr = next; } return prev; } } 算法思路： 需要定义三个指针：prev ， curr ， next
+curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走
+prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部
+next ：占住curr 的下一个节点</description>
+    </item>
+    
     <item>
       <title>LeetCode 排序数组</title>
       <link>https://sheephe66.github.io/p/leetcode-%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</link>

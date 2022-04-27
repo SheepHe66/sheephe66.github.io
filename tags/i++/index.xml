@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>i&#43;&#43; on SheepHe&#39;s Blog</title>
+    <link>https://sheephe66.github.io/tags/i&#43;&#43;/</link>
+    <description>Recent content in i&#43;&#43; on SheepHe&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Apr 2022 13:22:52 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/tags/i++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i&#43;&#43;与&#43;&#43;i</title>
+      <link>https://sheephe66.github.io/p/i-%E4%B8%8E-i/</link>
+      <pubDate>Wed, 27 Apr 2022 13:22:52 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/i-%E4%B8%8E-i/</guid>
+      <description>i++与++i i++: 后加加， 先自增，然后返回自增之前的值
+++i: 前加加， 先自增，然后返回自增之后的值
+总结: 不管i++还是++i，运算之后，i 本身的值都自增，（i++）整体不增，++i 整体增
+int i= 1; i++后: (i++) = 1 ; i = 2 ++i后: (++i) = 2 ; i = 2 </description>
+    </item>
+    
+  </channel>
+</rss>

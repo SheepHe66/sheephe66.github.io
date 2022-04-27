@@ -6,7 +6,69 @@
         <description>Recent content on SheepHe&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 22 Apr 2022 08:42:31 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 27 Apr 2022 13:23:30 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>LeetCode 反转链表</title>
+        <link>https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+        <pubDate>Wed, 27 Apr 2022 13:23:30 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/20.jpg" alt="Featured image of post LeetCode 反转链表" /&gt;&lt;h3 id=&#34;leetcode-反转链表&#34;&gt;LeetCode-反转链表&lt;/h3&gt;
+&lt;h4 id=&#34;题目信息&#34;&gt;题目信息&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;给你单链表的头节点 &lt;code&gt;head&lt;/code&gt; ，请你反转链表，并返回反转后的链表。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204252140238.png&#34; alt=&#34;image-20220425213950936&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;示例1：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例2：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入：head = [1,2]
+输出：[2,1]
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Solution&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;reverseList&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;ListNode&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;next&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;prev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;curr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;       
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;算法思路&#34;&gt;算法思路：&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;需要定义三个指针：prev ， curr  ， next&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走&lt;/p&gt;
+&lt;p&gt;prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;next ：占住curr 的下一个节点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;==为什么需要 next 指针？==&lt;/p&gt;
+&lt;p&gt;==循环迭代的每一步，都是把 curr.next 设置成 prev（prev往前挪），&lt;strong&gt;然后curr 再往前挪，但由于curr.next此时指向了prev，找不到curr 之前的下一个节点，此时就需要先定义一个next指针，提前把curr的下一位给占住==&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;curr 和 next 永远指向同一个节点，prev 指向它们的前一个节点&lt;/li&gt;
+&lt;li&gt;每一次反转都是把 curr.next 设置成 prev，然后把 curr 往前挪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204271416311.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>i&#43;&#43;与&#43;&#43;i</title>
+        <link>https://sheephe66.github.io/p/i-%E4%B8%8E-i/</link>
+        <pubDate>Wed, 27 Apr 2022 13:22:52 +0800</pubDate>
+        
+        <guid>https://sheephe66.github.io/p/i-%E4%B8%8E-i/</guid>
+        <description>&lt;img src="https://sheephe66.github.io/19.jpg" alt="Featured image of post i&#43;&#43;与&#43;&#43;i" /&gt;&lt;h4 id=&#34;i与i&#34;&gt;i++与++i&lt;/h4&gt;
+&lt;p&gt;i++:  后加加， 先自增，然后返回自增之前的值&lt;/p&gt;
+&lt;p&gt;++i:  前加加， 先自增，然后返回自增之后的值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总结:  不管i++还是++i，运算之后，i 本身的值都自增，（i++）整体不增，++i 整体增&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int i= 1;
+
+i++后: (i++) = 1  ;  i = 2
+
+++i后: (++i) = 2  ;  i = 2
+&lt;/code&gt;&lt;/pre&gt;</description>
+        </item>
+        <item>
         <title>SQL多表查询</title>
         <link>https://sheephe66.github.io/p/sql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
         <pubDate>Fri, 22 Apr 2022 08:42:31 +0800</pubDate>

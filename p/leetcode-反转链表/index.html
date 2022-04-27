@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LeetCode-反转链表 题目信息 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+示例1：
+输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2：
+输入：head = [1,2] 输出：[2,1] class Solution { public ListNode reverseList(ListNode head){ ListNode prev = null; ListNode curr = head; ListNode next = null; while(curr != null) { next = curr.next; curr.next = prev; prev = curr; curr = next; } return prev; } } 算法思路： 需要定义三个指针：prev ， curr ， next
+curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走
+prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部
+next ：占住curr 的下一个节点'><title>LeetCode 反转链表</title>
+
+<link rel='canonical' href='https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='LeetCode 反转链表'>
+<meta property='og:description' content='LeetCode-反转链表 题目信息 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+示例1：
+输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2：
+输入：head = [1,2] 输出：[2,1] class Solution { public ListNode reverseList(ListNode head){ ListNode prev = null; ListNode curr = head; ListNode next = null; while(curr != null) { next = curr.next; curr.next = prev; prev = curr; curr = next; } return prev; } } 算法思路： 需要定义三个指针：prev ， curr ， next
+curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走
+prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部
+next ：占住curr 的下一个节点'>
+<meta property='og:url' content='https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/'>
+<meta property='og:site_name' content='SheepHe&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='LeetCode' /><meta property='article:published_time' content='2022-04-27T13:23:30&#43;08:00'/><meta property='article:modified_time' content='2022-04-27T13:23:30&#43;08:00'/><meta property='og:image' content='https://sheephe66.github.io/20.jpg' />
+<meta name="twitter:title" content="LeetCode 反转链表">
+<meta name="twitter:description" content="LeetCode-反转链表 题目信息 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+示例1：
+输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2：
+输入：head = [1,2] 输出：[2,1] class Solution { public ListNode reverseList(ListNode head){ ListNode prev = null; ListNode curr = head; ListNode next = null; while(curr != null) { next = curr.next; curr.next = prev; prev = curr; curr = next; } return prev; } } 算法思路： 需要定义三个指针：prev ， curr ， next
+curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走
+prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部
+next ：占住curr 的下一个节点"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://sheephe66.github.io/20.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/1_hufc62854409b45f5799a497ed33101f9b_36924_300x0_resize_q75_box.jpg" width="300"
+                            height="299" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://sheephe66.github.io/">SheepHe&#39;s Blog</a></h1>
+        <h2 class="site-description">欢迎来到SheepHe的个人小站！</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/sheephe66'>
+                
+                    <?xml version="1.0" ?><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://sheephe66.github.io/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                
+                    <img src="/20.jpg" loading="lazy" alt="Featured image of post LeetCode 反转链表" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">LeetCode 反转链表</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 27, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h3 id="leetcode-反转链表">LeetCode-反转链表</h3>
+<h4 id="题目信息">题目信息</h4>
+<p><strong>给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</strong></p>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204252140238.png" alt="image-20220425213950936"  /></p>
+<p>示例1：</p>
+<pre><code>输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+</code></pre><p>示例2：</p>
+<pre><code>输入：head = [1,2]
+输出：[2,1]
+</code></pre><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">reverseList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">){</span>
+        <span class="n">ListNode</span> <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+        <span class="n">ListNode</span> <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">curr</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">;</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span><span class="o">;</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">prev</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>       
+</code></pre></div><h4 id="算法思路">算法思路：</h4>
+<p><strong>需要定义三个指针：prev ， curr  ， next</strong></p>
+<p>curr ：表示当前节点，相当于for循环中的 i，用来遍历链表，使循环往前走</p>
+<p>prev ：用来返回最终反转后的链表，遍历完链表，prev 指向新链表的头部</p>
+<p><strong>next ：占住curr 的下一个节点</strong></p>
+<p>==为什么需要 next 指针？==</p>
+<p>==循环迭代的每一步，都是把 curr.next 设置成 prev（prev往前挪），<strong>然后curr 再往前挪，但由于curr.next此时指向了prev，找不到curr 之前的下一个节点，此时就需要先定义一个next指针，提前把curr的下一位给占住==</strong></p>
+<ul>
+<li>curr 和 next 永远指向同一个节点，prev 指向它们的前一个节点</li>
+<li>每一次反转都是把 curr.next 设置成 prev，然后把 curr 往前挪</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/SheepHe66/BlogPictures/main/img/202204271416311.png" alt=""  /></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/leetcode/">LeetCode</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>承认自己的无知 , 乃是开启智慧的大门</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 SheepHe&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
