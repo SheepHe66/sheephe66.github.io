@@ -6,7 +6,17 @@
     <description>Recent content in Posts on SheepHe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Apr 2022 13:23:30 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 May 2022 17:00:47 +0800</lastBuildDate><atom:link href="https://sheephe66.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>排序算法</title>
+      <link>https://sheephe66.github.io/p/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 14 May 2022 17:00:47 +0800</pubDate>
+      
+      <guid>https://sheephe66.github.io/p/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description>排序算法  快速排序：O( N Log N ) 归并排序：O( N Log N ) 堆排序：  O( N Log N ) 选择排序：O( N^2 ) 插入排序：O( N^2 )  快速排序 基本思路：快速排序每一次都排定一个元素（这个元素呆在了它最终应该呆的位置），然后递归地去排它左边的部分和右边的部分，依次进行下去，直到数组有序；
+public class QuickSort { public static void main(String[] args) { int[] arr = { 49, 38, 65, 97, 23, 22, 76, 1, 5, 8, 2, 0, -1, 22 }; quickSort(arr, 0, arr.length - 1); System.out.println(&amp;#34;排序后:&amp;#34;); for (int i : arr) { System.out.println(i); } } private static void quickSort(int[] arr, int low, int high) { if (low &amp;lt; high) { // 找寻基准数据的正确索引 	int index = getIndex(arr, low, high); // 进行迭代对index之前和之后的数组进行相同的操作使整个数组变成有序 	//quickSort(arr, 0, index - 1); 之前的版本，这种姿势有很大的性能问题，谢谢大家的建议 	quickSort(arr, low, index - 1); quickSort(arr, index + 1, high); } } private static int getIndex(int[] arr, int low, int high{ // 基准数据 	int tmp = arr[low]; while (low &amp;lt; high) { // 当队尾的元素大于等于基准数据时,向前挪动high指针 	while (low &amp;lt; high &amp;amp;&amp;amp; arr[high] &amp;gt;= tmp) { high--; } // 如果队尾元素小于tmp了,需要将其赋值给low 	arr[low] = arr[high]; // 当队首元素小于等于tmp时,向前挪动low指针 	while (low &amp;lt; high &amp;amp;&amp;amp; arr[low] &amp;lt;= tmp) { low++; } // 当队首元素大于tmp时,需要将其赋值给high 	arr[high] = arr[low]; } arr[low] = tmp; return low; // 返回tmp的正确位置 	} } 归并排序 public class MergeSort { // 分治+合并的思想  public static void main(String[] args) { int[] arr = new int[]{10,6,5,8,9,2,8,4}; int L = 0, R = 7, M = 4; //merge(arr, L, M, R);  mergeSort(arr, L, R); for (int i = 0; i &amp;lt; arr.</description>
+    </item>
+    
     <item>
       <title>LeetCode 反转链表</title>
       <link>https://sheephe66.github.io/p/leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
